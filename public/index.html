@@ -5571,6 +5571,14 @@
         text-shadow: 0 18px 70px rgba(0, 0, 0, 0.3);
       }
 
+      /* On wide desktop canvases the display headline needs a little more air
+         above the fixed bottom copy so the two reading layers never collide. */
+      @media (min-width: 1100px) {
+        .hero h1 {
+          transform: translateY(-2.75rem);
+        }
+      }
+
       .hero-bottom {
         bottom: 70px;
       }
@@ -6200,30 +6208,6 @@
       .evira-intro__footer {
         grid-template-columns: minmax(0, 1fr) auto;
         gap: 1rem;
-      }
-
-      .evira-intro__counter {
-        display: flex;
-        min-width: 3.8rem;
-        justify-content: flex-end;
-        align-items: baseline;
-        color: var(--intro-fg);
-        font-family: "Archivo Narrow", "Inter Tight", sans-serif;
-        font-size: 1rem;
-        font-variant-numeric: tabular-nums;
-        line-height: 1;
-        letter-spacing: 0.02em;
-      }
-
-      .evira-intro__counter b,
-      .evira-intro__counter i {
-        font-style: normal;
-        font-weight: 600;
-      }
-
-      .evira-intro__counter i {
-        margin-left: 0.15rem;
-        color: var(--intro-accent);
       }
 
       @media (max-width: 980px) {
@@ -7169,25 +7153,10 @@
       (() => {
         const root = document.documentElement;
         const loader = document.getElementById("cremora-loader");
-        const loaderCounter = loader?.querySelector(".evira-intro__counter b");
         const heroVideo = document.querySelector(".hero-motion-video");
         const startedAt = performance.now();
         const minimumDuration = 4450;
         const maximumDuration = 4450;
-        let counterFrame;
-
-        const updateCounter = (now) => {
-          if (!loaderCounter || loader?.classList.contains("is-leaving"))
-            return;
-          const progress = Math.min(
-            99,
-            Math.floor(((now - startedAt) / minimumDuration) * 100),
-          );
-          loaderCounter.textContent = String(progress).padStart(2, "0");
-          counterFrame = requestAnimationFrame(updateCounter);
-        };
-
-        counterFrame = requestAnimationFrame(updateCounter);
 
         if (heroVideo) {
           heroVideo.muted = true;
@@ -7216,8 +7185,6 @@
 
         const finish = () => {
           if (!loader || loader.classList.contains("is-leaving")) return;
-          if (counterFrame) cancelAnimationFrame(counterFrame);
-          if (loaderCounter) loaderCounter.textContent = "100";
           root.classList.add("site-ready");
           loader.classList.add("is-leaving");
           window.setTimeout(() => {
