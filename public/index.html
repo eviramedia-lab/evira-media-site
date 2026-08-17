@@ -6536,6 +6536,83 @@
           font-size: 15vw;
         }
       }
+
+      /* A quiet editorial pulse gives the open work header a little atmosphere
+         while keeping its existing grid, copy and colour system intact. */
+      @media (min-width: 721px) {
+        .work .section-head {
+          position: relative;
+          isolation: isolate;
+          overflow: hidden;
+        }
+
+        .work .section-head::before {
+          content: "";
+          position: absolute;
+          z-index: 0;
+          top: 18%;
+          right: 8%;
+          width: clamp(13rem, 22vw, 22rem);
+          aspect-ratio: 1;
+          border: 1px solid rgba(236, 255, 32, 0.2);
+          border-radius: 50%;
+          box-shadow:
+            0 0 0 1px rgba(236, 255, 32, 0.05),
+            inset 0 0 42px rgba(236, 255, 32, 0.04);
+          opacity: 0.8;
+          pointer-events: none;
+          animation: evira-work-pulse 9s ease-in-out infinite;
+        }
+
+        .work .section-head::after {
+          content: "";
+          position: absolute;
+          z-index: 0;
+          top: 56%;
+          right: -4%;
+          width: 58%;
+          height: 1px;
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(244, 244, 240, 0.18),
+            transparent
+          );
+          transform: rotate(-18deg);
+          transform-origin: right center;
+          pointer-events: none;
+        }
+
+        .work .section-head > * {
+          position: relative;
+          z-index: 1;
+        }
+      }
+
+      @keyframes evira-work-pulse {
+        0%,
+        100% {
+          transform: scale(0.98);
+          opacity: 0.52;
+        }
+        50% {
+          transform: scale(1.02);
+          opacity: 0.86;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .work .section-head::before {
+          animation: none;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .work-card:nth-child(3) {
+          width: auto;
+          justify-self: stretch;
+        }
+      }
     </style>
   </head>
   <body>
@@ -6555,7 +6632,6 @@
       ></div>
       <div aria-hidden="true" class="evira-intro__grid"></div>
       <div aria-hidden="true" class="evira-intro__masthead">
-        <span>EVIRA MEDIA / 2026</span>
         <span>CREATOR PARTNERSHIPS</span>
       </div>
       <div aria-hidden="true" class="evira-intro__stage">
@@ -6579,7 +6655,6 @@
       </div>
       <div aria-hidden="true" class="evira-intro__footer">
         <span class="evira-intro__rule"><i></i></span>
-        <span class="evira-intro__counter"><b>00</b><i>%</i></span>
       </div>
     </div>
     <main>
