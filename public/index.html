@@ -6528,34 +6528,6 @@
       }
     </style>
     <style id="evira-creative-director-pass">
-      /* A slower, cleaner intro gives each word a readable beat on every screen. */
-      .evira-intro__sequence {
-        width: min(calc(100vw - 2rem), 1500px);
-        height: clamp(5rem, 16vw, 15rem);
-      }
-
-      .evira-intro__word {
-        max-width: 100%;
-        overflow: hidden;
-        white-space: nowrap;
-        font-size: clamp(3.8rem, 15.5vw, 14rem);
-        animation-duration: 0.74s;
-      }
-
-      .evira-intro__word--media {
-        animation-delay: 0.06s;
-      }
-
-      .evira-intro__word--community {
-        animation-delay: 0.86s;
-      }
-
-      .evira-intro__word--evira {
-        max-width: 100%;
-        font-size: clamp(3.8rem, 15.5vw, 14rem);
-        animation-delay: 1.66s;
-      }
-
       /* Keep the motion plate inside the hero and guarantee the reveal after the intro. */
       .hero-motion-video {
         transform: scale(1);
@@ -6564,39 +6536,6 @@
       html.site-ready .hero-motion-video {
         opacity: 1 !important;
         transform: scale(1) !important;
-      }
-
-      @keyframes evira-intro-word {
-        0% {
-          opacity: 0;
-          transform: translate3d(0, 48%, 0);
-        }
-        15%,
-        78% {
-          opacity: 1;
-          transform: translate3d(0, 0, 0);
-        }
-        100% {
-          opacity: 0;
-          transform: translate3d(0, -48%, 0);
-        }
-      }
-
-      .cremora-loader.evira-intro.is-leaving
-        .evira-intro__stage,
-      .cremora-loader.evira-intro.is-leaving
-        .evira-intro__masthead,
-      .cremora-loader.evira-intro.is-leaving
-        .evira-intro__footer,
-      .cremora-loader.evira-intro.is-leaving
-        .evira-intro__grid {
-        animation-duration: 0.42s;
-      }
-
-      .cremora-loader.evira-intro.is-leaving .evira-intro__panel--top,
-      .cremora-loader.evira-intro.is-leaving .evira-intro__panel--bottom {
-        animation-duration: 0.54s;
-        animation-delay: 0s;
       }
 
       /* The work cards now step down the page, while the creator route reads as a
@@ -6651,18 +6590,6 @@
       }
 
       @media (max-width: 720px) {
-        .evira-intro__sequence {
-          width: calc(100vw - 1rem);
-          height: clamp(4.2rem, 21vw, 8rem);
-        }
-
-        .evira-intro__word,
-        .evira-intro__word--evira {
-          max-width: 100%;
-          font-size: clamp(3rem, 16.8vw, 7.8rem);
-          letter-spacing: -0.045em;
-        }
-
         .creator-route__copy {
           padding: 1rem 0 0;
           border-top: 1px solid rgba(7, 7, 7, 0.55);
@@ -6672,6 +6599,105 @@
 
         .contact-route:nth-child(2) {
           transform: none;
+        }
+      }
+
+      /* Scroll choreography: give the image cards, service rows and routes their
+         own entrances so the page reads as a sequence, not a stack of repeats. */
+      .work-card[data-reveal][data-visible="false"] {
+        transform: translate3d(0, 62px, 0) rotate(-1deg);
+      }
+
+      .work-card:nth-child(2)[data-reveal][data-visible="false"] {
+        transform: translate3d(0, 84px, 0) rotate(1.1deg);
+        transition-delay: 90ms;
+      }
+
+      .work-card:nth-child(3)[data-reveal][data-visible="false"] {
+        transform: translate3d(0, 106px, 0) rotate(-0.7deg);
+        transition-delay: 170ms;
+      }
+
+      .work-card[data-reveal="true"][data-visible="true"]:hover {
+        transform: translate3d(0, -10px, 0);
+      }
+
+      .service-row[data-reveal][data-visible="false"] {
+        transform: translate3d(-28px, 0, 0);
+      }
+
+      .service-row:nth-child(even)[data-reveal][data-visible="false"] {
+        transform: translate3d(28px, 0, 0);
+      }
+
+      .service-row:nth-child(2)[data-reveal][data-visible="false"] {
+        transition-delay: 60ms;
+      }
+
+      .service-row:nth-child(3)[data-reveal][data-visible="false"] {
+        transition-delay: 120ms;
+      }
+
+      .service-row:nth-child(4)[data-reveal][data-visible="false"] {
+        transition-delay: 180ms;
+      }
+
+      .contact-route[data-reveal][data-visible="false"] {
+        transform: translate3d(0, 44px, 0);
+      }
+
+      .contact-route:nth-child(2)[data-reveal][data-visible="false"] {
+        transform: translate3d(0, 76px, 0);
+        transition-delay: 120ms;
+      }
+
+      .contact-route[data-reveal][data-visible="true"] {
+        transform: none;
+      }
+
+      @media (min-width: 901px) {
+        .work-card:nth-child(1) .work-card-top {
+          transform: translateY(-0.25rem);
+        }
+
+        .work-card:nth-child(2) .work-card-top {
+          transform: translateY(0.45rem) rotate(0.45deg);
+        }
+
+        .work-card:nth-child(3) .work-card-top {
+          transform: translateY(-0.2rem) rotate(-0.45deg);
+        }
+
+        .creator-route__main[data-reveal][data-visible="false"],
+        .services-heading[data-reveal][data-visible="false"],
+        .evira-trust[data-reveal][data-visible="false"] {
+          transform: translate3d(0, 54px, 0) scale(0.985);
+        }
+      }
+
+      @media (max-width: 720px) {
+        .work-card[data-reveal][data-visible="false"],
+        .work-card:nth-child(2)[data-reveal][data-visible="false"],
+        .work-card:nth-child(3)[data-reveal][data-visible="false"] {
+          transform: translate3d(0, 42px, 0);
+        }
+
+        .service-row[data-reveal][data-visible="false"],
+        .service-row:nth-child(even)[data-reveal][data-visible="false"] {
+          transform: translate3d(0, 24px, 0);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .work-card[data-reveal],
+        .service-row[data-reveal],
+        .contact-route[data-reveal],
+        .creator-route__main[data-reveal],
+        .services-heading[data-reveal],
+        .evira-trust[data-reveal] {
+          opacity: 1 !important;
+          transform: none !important;
+          transition: none !important;
         }
       }
     </style>
@@ -6760,11 +6786,6 @@
             outreach to campaign delivery.
           </p>
           <div class="hero-actions-restored">
-            <a
-              class="section-action hero-brief-cta"
-              href="#work"
-              >SEE HOW WE WORK <span>→</span></a
-            >
             <a
               aria-label="See how Evira works"
               class="round-link"
@@ -7220,9 +7241,9 @@
         const reducedMotion = window.matchMedia?.(
           "(prefers-reduced-motion: reduce)",
         ).matches;
-        // Give each word enough room to land while keeping the intro purposeful.
-        const minimumDuration = reducedMotion ? 0 : 2600;
-        const maximumDuration = reducedMotion ? 0 : 2600;
+        // Keep the original, quick editorial hand-off after the three-word lockup.
+        const minimumDuration = reducedMotion ? 0 : 620;
+        const maximumDuration = reducedMotion ? 0 : 620;
 
         if (heroVideo) {
           heroVideo.muted = true;
@@ -7256,7 +7277,7 @@
           window.setTimeout(() => {
             loader.remove();
             root.classList.remove("is-loading");
-          }, 560);
+          }, 360);
         };
 
         Promise.race([
