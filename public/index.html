@@ -5557,6 +5557,7 @@
 
       .hero h1 {
         max-width: 8.4ch;
+        font-size: clamp(4.8rem, 11.25vw, 12rem);
         text-shadow: 0 18px 70px rgba(0, 0, 0, 0.3);
       }
 
@@ -5730,7 +5731,9 @@
         border-top: 1px solid rgba(255, 255, 255, 0.3);
         color: rgba(244, 245, 245, 0.72);
         font-size: clamp(0.98rem, 1.13vw, 1.16rem);
+        font-weight: 500;
         line-height: 1.48;
+        text-transform: none;
       }
 
       .section-intro p {
@@ -6165,7 +6168,7 @@
 
       .evira-intro__word--ventures {
         max-width: calc(100vw - 3rem);
-        font-size: clamp(3.4rem, 11vw, 10.7rem);
+        font-size: clamp(3.4rem, 10.4vw, 10.2rem);
         letter-spacing: -0.045em;
         animation-delay: 1.52s;
       }
@@ -6246,7 +6249,22 @@
         }
 
         .work-card {
+          grid-column: auto;
           min-height: 590px;
+        }
+
+        .work-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .work-card:nth-child(2) {
+          margin-top: clamp(2rem, 5vw, 4rem);
+        }
+
+        .work-card:nth-child(3) {
+          grid-column: 1 / -1;
+          width: calc(50% - 0.75rem);
+          justify-self: end;
         }
       }
 
@@ -6254,6 +6272,11 @@
         .nav-shell {
           right: 0.75rem;
           left: 0.75rem;
+        }
+
+        .hero h1 {
+          max-width: 100%;
+          font-size: clamp(4rem, 16vw, 7rem);
         }
 
         .manifesto,
@@ -6331,6 +6354,7 @@
 
         .work-card {
           grid-column: 1;
+          width: auto;
           min-height: 560px;
         }
 
