@@ -6116,9 +6116,10 @@
       }
 
       .evira-intro__word {
-        font-family: "Archivo Narrow", "Inter Tight", sans-serif;
+        /* Match the exact typeface used by the final EVIRA lockup. */
+        font-family: "Inter Tight", Arial, Helvetica, sans-serif;
         font-size: clamp(5rem, 16.5vw, 15.5rem);
-        font-weight: 700;
+        font-weight: 900;
         line-height: 0.72;
         letter-spacing: -0.035em;
         animation-timing-function: var(--evira-ease);
@@ -6850,6 +6851,34 @@
         pointer-events: none;
       }
 
+      /* Contact routes stay editorial: the address itself is the action. */
+      .contact-email {
+        display: inline-block;
+        min-height: 44px;
+        padding: 0 0 0.35rem;
+        border: 0;
+        border-bottom: 1px solid rgba(241, 241, 235, 0.55);
+        border-radius: 0;
+        color: var(--cream);
+        font-family: "Inter Tight", Arial, Helvetica, sans-serif;
+        font-size: clamp(0.95rem, 1.55vw, 1.3rem);
+        font-weight: 650;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+        white-space: nowrap;
+        transition:
+          color 0.25s ease,
+          border-color 0.25s ease,
+          opacity 0.25s ease;
+      }
+
+      .contact-email:hover,
+      .contact-email:focus-visible {
+        border-bottom-color: var(--signal);
+        color: var(--signal);
+        opacity: 1;
+      }
+
       @media (max-width: 720px) {
         .evira-intro__sequence {
           width: calc(100vw - 1.25rem);
@@ -6882,6 +6911,11 @@
         .evira-intro__mark {
           width: clamp(2.35rem, 10vw, 3.8rem);
           height: clamp(2.35rem, 10vw, 3.8rem);
+        }
+
+        .contact-email {
+          max-width: 100%;
+          font-size: clamp(0.88rem, 4.2vw, 1.1rem);
         }
       }
 
@@ -6963,7 +6997,7 @@
         <nav aria-label="Main navigation" class="nav-links">
           <a href="#creators">Creators</a><a href="#work">Brands</a
           ><a href="#services">How It Works</a
-          ><a class="nav-cta" href="#contact">Talk to Evira ↗</a>
+          ><a class="nav-cta" href="#contact">Work with Evira ↗</a>
         </nav>
         <button
           aria-expanded="false"
@@ -7055,7 +7089,7 @@
             </p>
             <a
               class="section-action"
-              href="mailto:partnerships@eviramedia.com?subject=Creator%20Campaign%20Brief"
+            href="mailto:partnerships@eviramedia.com?subject=Creator%20Partnership%20Enquiry"
               >SEND US YOUR BRIEF <span>→</span></a
             >
             <small class="section-note"
@@ -7196,7 +7230,7 @@
           </p>
           <a
             class="creator-route__cta"
-            href="mailto:applications@eviramedia.com?subject=Evira%20Creator%20Application"
+            href="mailto:applications@eviramedia.com?subject=Creator%20Application"
             >APPLY TO EVIRA →</a
           >
         </div>
@@ -7264,9 +7298,9 @@
               <p>Planning a creator campaign?</p>
             </div>
             <a
-              class="contact-cta contact-cta--brand"
-              href="mailto:partnerships@eviramedia.com?subject=Creator%20Campaign%20Brief"
-              >SEND US YOUR BRIEF →</a
+              class="contact-email"
+              href="mailto:partnerships@eviramedia.com?subject=Creator%20Partnership%20Enquiry"
+              >partnerships@eviramedia.com</a
             >
           </article>
           <article class="contact-route" data-reveal="true">
@@ -7275,9 +7309,9 @@
               <p>Looking for better brand opportunities?</p>
             </div>
             <a
-              class="contact-cta contact-cta--creator"
-              href="mailto:applications@eviramedia.com?subject=Evira%20Creator%20Application"
-              >APPLY TO EVIRA →</a
+              class="contact-email"
+              href="mailto:applications@eviramedia.com?subject=Creator%20Application"
+              >applications@eviramedia.com</a
             >
           </article>
         </div>
