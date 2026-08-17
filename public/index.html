@@ -6837,8 +6837,11 @@
       .evira-intro__word--ventures {
         animation: evira-intro-word 0.86s cubic-bezier(0.22, 1, 0.36, 1)
           1.76s both;
-        max-width: calc(100vw - 1.25rem);
-        font-size: clamp(2.35rem, 10.8vw, 9rem);
+        /* DEALS. is part of the same three-word lockup, so it should carry
+           the exact same display scale as CREATORS. and BRANDS. */
+        max-width: 100%;
+        font-size: clamp(5rem, 16.5vw, 15.5rem);
+        letter-spacing: -0.035em;
       }
 
       .evira-intro__lockup {
@@ -6908,7 +6911,7 @@
 
         .evira-intro__word--ventures {
           width: calc(100vw - 1.25rem);
-          font-size: clamp(2rem, 11.5vw, 4.6rem);
+          font-size: clamp(2.25rem, 11.5vw, 4.5rem);
           letter-spacing: -0.045em;
         }
 
