@@ -6556,6 +6556,16 @@
         animation-delay: 1.66s;
       }
 
+      /* Keep the motion plate inside the hero and guarantee the reveal after the intro. */
+      .hero-motion-video {
+        transform: scale(1);
+      }
+
+      html.site-ready .hero-motion-video {
+        opacity: 1 !important;
+        transform: scale(1) !important;
+      }
+
       @keyframes evira-intro-word {
         0% {
           opacity: 0;
