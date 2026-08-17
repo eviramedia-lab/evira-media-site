@@ -5169,6 +5169,328 @@
         }
       }
     </style>
+    <style id="evira-editorial-weighting-v2">
+      /* Editorial layout pass: preserve the header, loader, palette and motion. */
+      .manifesto {
+        padding-top: clamp(7rem, 9vw, 10rem);
+        padding-bottom: clamp(7rem, 10vw, 11rem);
+      }
+      .manifesto-final {
+        display: grid;
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        column-gap: clamp(1rem, 2vw, 2.5rem);
+        row-gap: clamp(3rem, 5vw, 5.5rem);
+        align-items: end;
+        padding-top: clamp(4rem, 6vw, 6.5rem);
+      }
+      .manifesto-final__headline {
+        grid-column: 1 / 9;
+        max-width: 8.5ch;
+        font-size: clamp(4.5rem, 6.7vw, 7.7rem);
+        line-height: 0.86;
+        letter-spacing: -0.052em;
+        text-wrap: balance;
+      }
+      .manifesto-final__copy {
+        grid-column: 10 / 13;
+        display: grid;
+        gap: 1.6rem;
+        max-width: none;
+        padding-bottom: 0.25rem;
+        font-size: clamp(1rem, 1.15vw, 1.15rem);
+        line-height: 1.46;
+      }
+      .manifesto-final__copy p,
+      .manifesto-final__copy p:last-child {
+        padding-top: 0.95rem;
+        border-top: 1px solid rgba(7, 7, 7, 0.28);
+        font-weight: 500;
+      }
+      .manifesto-final__copy p::before {
+        display: block;
+        margin-bottom: 0.7rem;
+        color: rgba(7, 7, 7, 0.58);
+        font-size: 0.62rem;
+        line-height: 1;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        font-weight: 900;
+      }
+      .manifesto-final__copy p:first-child::before {
+        content: "For brands";
+      }
+      .manifesto-final__copy p:last-child::before {
+        content: "For creators";
+      }
+
+      .work .section-head {
+        row-gap: clamp(2.5rem, 4vw, 4rem);
+        margin-bottom: clamp(4.5rem, 7vw, 7.5rem);
+      }
+      .work .section-head h2 {
+        max-width: 9.8ch;
+        font-size: clamp(4.1rem, 6.15vw, 7.3rem);
+        line-height: 0.88;
+        letter-spacing: -0.052em;
+      }
+      .work .section-head .section-intro {
+        line-height: 1.48;
+      }
+      .work-card-bottom {
+        min-height: 120px;
+        align-items: end;
+      }
+      .work-card-bottom h3 {
+        max-width: 11ch;
+        line-height: 0.98;
+      }
+      .work-card-bottom > div {
+        align-items: flex-start;
+      }
+
+      .creator-route {
+        padding-top: clamp(7rem, 9vw, 10rem);
+        padding-bottom: clamp(7rem, 10vw, 11rem);
+      }
+      .creator-route__label {
+        grid-template-columns: 2fr 10fr;
+      }
+      .creator-route__main {
+        padding-top: clamp(4.5rem, 6.5vw, 7rem);
+        align-items: end;
+      }
+      .creator-route__main h2 {
+        grid-column: 1 / 9;
+        max-width: 10.6ch;
+        font-size: clamp(4.2rem, 6.15vw, 7.25rem);
+        line-height: 0.86;
+        letter-spacing: -0.052em;
+        text-wrap: balance;
+      }
+      .creator-route__main h2 em {
+        margin-top: 0.08em;
+        line-height: 0.84;
+        letter-spacing: -0.034em;
+      }
+      .creator-route__copy {
+        grid-column: 10 / 13;
+        gap: 1.35rem;
+        max-width: 30ch;
+        padding: 1rem 0 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.3);
+        font-size: clamp(1rem, 1.12vw, 1.14rem);
+        line-height: 1.48;
+      }
+      .creator-route__copy::before {
+        content: "Your side";
+        color: var(--signal);
+        font-size: 0.62rem;
+        line-height: 1;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        font-weight: 900;
+      }
+      .creator-route__assurance {
+        font-weight: 700;
+      }
+      .creator-route__footer {
+        margin-top: clamp(4.5rem, 6vw, 6.5rem);
+        padding: 1.4rem 0;
+      }
+      .creator-route__capabilities {
+        max-width: 70ch;
+        line-height: 1.65;
+      }
+      .creator-route__cta {
+        display: inline-flex;
+        align-items: center;
+        min-height: 46px;
+        padding: 0.95rem 1.25rem;
+        border-radius: 999px;
+        background: var(--signal);
+        color: var(--ink);
+      }
+      .creator-route__cta:hover {
+        background: var(--cream);
+        color: var(--ink);
+      }
+
+      .services-heading {
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        column-gap: clamp(1rem, 2vw, 2.5rem);
+        align-items: end;
+      }
+      .services-heading h2 {
+        grid-column: 1 / 8;
+        max-width: 8ch;
+        font-size: clamp(4rem, 6vw, 7rem);
+      }
+      .services-heading > p {
+        grid-column: 9 / 13;
+        max-width: 28ch;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(7, 7, 7, 0.28);
+        line-height: 1.48;
+      }
+      .service-row {
+        min-height: 136px;
+        grid-template-columns: 64px minmax(190px, 0.82fr) minmax(
+            260px,
+            1.5fr
+          ) 42px;
+        gap: clamp(1rem, 2vw, 2.5rem);
+      }
+      .service-row h3 {
+        font-size: clamp(2.3rem, 3.25vw, 3.7rem);
+      }
+      .service-row > p {
+        max-width: 34ch;
+        color: rgba(7, 7, 7, 0.7);
+        line-height: 1.48;
+      }
+
+      .evira-trust {
+        grid-template-columns: minmax(0, 1.45fr) minmax(260px, 0.55fr);
+        gap: clamp(3rem, 7vw, 8rem);
+      }
+      .evira-trust h2 {
+        max-width: 6.8ch;
+        font-size: clamp(4.8rem, 8.8vw, 9.8rem);
+        line-height: 0.82;
+      }
+      .evira-trust__copy {
+        padding: 1rem 0 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.28);
+        font-size: clamp(1rem, 1.3vw, 1.25rem);
+        line-height: 1.42;
+      }
+
+      .contact {
+        padding-top: clamp(7rem, 10vw, 11rem);
+        padding-bottom: clamp(6rem, 8vw, 9rem);
+      }
+      .contact h2 {
+        max-width: 8ch;
+        font-size: clamp(4.8rem, 8.6vw, 9.5rem);
+        line-height: 0.84;
+      }
+      .contact-route {
+        min-height: 205px;
+      }
+      .contact-route p {
+        max-width: 24ch;
+        line-height: 1.12;
+      }
+
+      @media (max-width: 900px) {
+        .manifesto-final,
+        .creator-route__main,
+        .services-heading {
+          grid-template-columns: repeat(8, minmax(0, 1fr));
+        }
+        .manifesto-final__headline,
+        .creator-route__main h2 {
+          grid-column: 1 / 9;
+          max-width: 10ch;
+          font-size: clamp(4rem, 10.5vw, 6.25rem);
+        }
+        .manifesto-final__copy,
+        .creator-route__copy {
+          grid-column: 4 / 9;
+          margin: 0;
+          max-width: 34ch;
+        }
+        .work .section-head h2 {
+          font-size: clamp(3.9rem, 9.4vw, 5.9rem);
+        }
+        .creator-route__label {
+          grid-template-columns: 2fr 6fr;
+        }
+        .services-heading h2 {
+          grid-column: 1 / 7;
+        }
+        .services-heading > p {
+          grid-column: 5 / 9;
+          margin-top: 1rem;
+        }
+        .service-row {
+          min-height: 0;
+          grid-template-columns: 48px 1fr 32px;
+          padding: 1.7rem 0;
+        }
+        .service-row > p {
+          grid-column: 2 / 3;
+        }
+        .evira-trust {
+          grid-template-columns: 1fr;
+        }
+        .evira-trust__copy {
+          margin-left: 36%;
+          max-width: 34ch;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .manifesto,
+        .creator-route {
+          padding-top: 5.5rem;
+          padding-bottom: 6rem;
+        }
+        .manifesto-final,
+        .creator-route__main,
+        .services-heading {
+          display: grid;
+          grid-template-columns: 1fr;
+        }
+        .manifesto-final__headline,
+        .manifesto-final__copy,
+        .creator-route__main h2,
+        .creator-route__copy,
+        .services-heading h2,
+        .services-heading > p {
+          grid-column: 1;
+        }
+        .manifesto-final__headline,
+        .creator-route__main h2 {
+          max-width: 100%;
+          font-size: clamp(3.05rem, 13vw, 4.25rem);
+          line-height: 0.9;
+        }
+        .manifesto-final__copy,
+        .creator-route__copy,
+        .services-heading > p {
+          margin: 0;
+          max-width: 30ch;
+        }
+        .creator-route__label {
+          grid-template-columns: auto 1fr;
+        }
+        .creator-route__footer {
+          gap: 1.5rem;
+        }
+        .creator-route__cta {
+          min-height: 44px;
+        }
+        .services-heading h2 {
+          max-width: 7ch;
+          font-size: clamp(3.2rem, 13vw, 4.5rem);
+        }
+        .evira-trust h2 {
+          max-width: 6ch;
+          font-size: clamp(4rem, 17vw, 5.4rem);
+        }
+        .evira-trust__copy {
+          margin-left: 0;
+          max-width: 29ch;
+        }
+        .contact {
+          padding-top: 6rem;
+        }
+        .contact h2 {
+          font-size: clamp(4rem, 17vw, 5.8rem);
+        }
+      }
+    </style>
   </head>
   <body>
     <div
