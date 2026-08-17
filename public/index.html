@@ -6961,7 +6961,7 @@
         font-size: clamp(3.8rem, 8vw, 9rem);
       }
 
-      /* The intro is deliberately brief: three clean brand beats, then site. */
+      /* Keep the existing intro design; give each word enough time to register. */
       .evira-intro__grid {
         opacity: 0.12;
       }
@@ -6970,20 +6970,37 @@
         opacity: 0.7;
       }
 
+      @keyframes evira-intro-word-readable {
+        0% {
+          opacity: 0;
+          transform: translate3d(0, 105%, 0);
+        }
+        12%,
+        74% {
+          opacity: 1;
+          transform: translate3d(0, 0, 0);
+        }
+        100% {
+          opacity: 0;
+          transform: translate3d(0, -105%, 0);
+        }
+      }
+
       .evira-intro__word {
         font-size: clamp(4.5rem, 14vw, 13rem);
-        animation-duration: 0.35s;
-        animation-timing-function: cubic-bezier(0.2, 0.85, 0.25, 1);
+        animation-name: evira-intro-word-readable;
+        animation-duration: 1s;
+        animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
       }
 
       .evira-intro__word--media {
         color: var(--cream);
-        animation-delay: 0.02s;
+        animation-delay: 0.05s;
       }
 
       .evira-intro__word--community {
         color: var(--signal);
-        animation-delay: 0.3s;
+        animation-delay: 1.05s;
       }
 
       .evira-intro__word--ventures {
@@ -6991,7 +7008,7 @@
         color: var(--cream);
         font-size: clamp(4.5rem, 14vw, 13rem);
         letter-spacing: -0.035em;
-        animation-delay: 0.58s;
+        animation-delay: 2.05s;
       }
 
       .evira-intro__lockup {
@@ -6999,7 +7016,7 @@
       }
 
       .evira-intro__rule i {
-        animation-duration: 0.72s;
+        animation-duration: 3.05s;
       }
 
       .evira-intro__counter {
@@ -7680,8 +7697,8 @@
         const loaderCounter = loader?.querySelector(".evira-intro__counter b");
         const heroVideo = document.querySelector(".hero-motion-video");
         const startedAt = performance.now();
-        const minimumDuration = 900;
-        const maximumDuration = 900;
+        const minimumDuration = 3150;
+        const maximumDuration = 3150;
         let counterFrame;
 
         const updateCounter = (now) => {
