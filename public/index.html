@@ -4302,7 +4302,7 @@
         background: var(--intro-accent);
         transform: scaleX(0);
         transform-origin: left center;
-        animation: evira-intro-rule 4.35s cubic-bezier(0.3, 0, 0.16, 1) 0.08s
+        animation: evira-intro-rule 0.52s cubic-bezier(0.3, 0, 0.16, 1) 0.04s
           forwards;
       }
       .evira-intro__stage {
@@ -4313,8 +4313,7 @@
         place-items: center;
         padding: clamp(4.5rem, 8vw, 8rem) clamp(1rem, 3vw, 3rem);
       }
-      .evira-intro__sequence,
-      .evira-intro__lockup {
+      .evira-intro__sequence {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -4344,44 +4343,20 @@
       }
       .evira-intro__word--media {
         color: var(--intro-accent);
-        animation: evira-intro-word 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.08s
+        animation: evira-intro-word 0.24s cubic-bezier(0.22, 1, 0.36, 1) 0.04s
           both;
       }
       .evira-intro__word--community {
-        animation: evira-intro-word 1.1s cubic-bezier(0.22, 1, 0.36, 1) 1.1s
+        animation: evira-intro-word 0.24s cubic-bezier(0.22, 1, 0.36, 1) 0.24s
           both;
       }
-      .evira-intro__word--ventures {
+      .evira-intro__word--evira {
         color: var(--intro-accent);
         max-width: calc(100vw - 2rem);
-        margin-inline: auto;
-        font-size: clamp(3rem, 11.2vw, 10.5rem);
-        letter-spacing: -0.055em;
-        animation: evira-intro-word 1.1s cubic-bezier(0.22, 1, 0.36, 1) 2.12s
+        font-size: clamp(4.6rem, 16vw, 14rem);
+        letter-spacing: -0.038em;
+        animation: evira-intro-word 0.24s cubic-bezier(0.22, 1, 0.36, 1) 0.44s
           both;
-      }
-      .evira-intro__lockup {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: clamp(0.8rem, 2vw, 1.8rem);
-        opacity: 0;
-        transform: translate(-50%, -42%) scale(0.965);
-        animation: evira-intro-lockup 0.65s cubic-bezier(0.22, 1, 0.36, 1) 3.25s
-          forwards;
-      }
-      .evira-intro__lockup strong {
-        font-family: "Inter Tight", Arial, Helvetica, sans-serif;
-        font-size: clamp(4.4rem, 14vw, 12.4rem);
-        font-weight: 900;
-        line-height: 0.78;
-        letter-spacing: -0.04em;
-      }
-      .evira-intro__mark {
-        width: clamp(3.1rem, 7vw, 6.5rem);
-        height: clamp(3.1rem, 7vw, 6.5rem);
-        color: var(--intro-accent);
-        flex: 0 0 auto;
       }
       .cremora-loader.evira-intro.is-leaving {
         background: transparent;
@@ -4395,12 +4370,12 @@
         animation: evira-intro-content-out 0.32s ease forwards;
       }
       .cremora-loader.evira-intro.is-leaving .evira-intro__panel--top {
-        animation: evira-intro-panel-top 0.88s cubic-bezier(0.76, 0, 0.24, 1)
-          0.12s forwards;
+        animation: evira-intro-panel-top 0.32s cubic-bezier(0.76, 0, 0.24, 1)
+          0s forwards;
       }
       .cremora-loader.evira-intro.is-leaving .evira-intro__panel--bottom {
-        animation: evira-intro-panel-bottom 0.88s cubic-bezier(0.76, 0, 0.24, 1)
-          0.12s forwards;
+        animation: evira-intro-panel-bottom 0.32s cubic-bezier(0.76, 0, 0.24, 1)
+          0s forwards;
       }
       @keyframes evira-intro-fade-in {
         to {
@@ -4427,12 +4402,6 @@
           transform: translate3d(0, -110%, 0);
         }
       }
-      @keyframes evira-intro-lockup {
-        to {
-          opacity: 1;
-          transform: translate(-50%, -50%) scale(1);
-        }
-      }
       @keyframes evira-intro-content-out {
         to {
           opacity: 0;
@@ -4457,32 +4426,21 @@
           font-size: clamp(4.25rem, 21vw, 8rem);
           letter-spacing: -0.025em;
         }
-        .evira-intro__word--ventures {
+        .evira-intro__word--evira {
           max-width: calc(100vw - 1.5rem);
-          font-size: clamp(2.2rem, 10.8vw, 4.8rem);
-          letter-spacing: -0.045em;
-        }
-        .evira-intro__lockup {
-          gap: 0.65rem;
-        }
-        .evira-intro__lockup strong {
-          font-size: clamp(4.2rem, 20vw, 7.3rem);
+          font-size: clamp(4.25rem, 21vw, 8rem);
           letter-spacing: -0.025em;
-        }
-        .evira-intro__mark {
-          width: clamp(2.6rem, 12vw, 4rem);
-          height: clamp(2.6rem, 12vw, 4rem);
         }
       }
       @media (prefers-reduced-motion: reduce) {
         .evira-intro__word--media,
-        .evira-intro__word--community,
-        .evira-intro__word--ventures {
+        .evira-intro__word--community {
           display: none;
         }
-        .evira-intro__lockup {
+        .evira-intro__word--evira {
+          display: flex;
           opacity: 1;
-          transform: translate(-50%, -50%);
+          transform: none;
           animation: none;
         }
         .evira-intro__masthead,
@@ -4528,15 +4486,6 @@
     </style>
     <style id="evira-agency-conversion-overrides">
       /* Evira creator-agency conversion layer */
-      .hero-assurance {
-        display: block;
-        margin-top: 0.85rem;
-        font-size: 0.72rem;
-        line-height: 1.25;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        font-weight: 900;
-      }
       .contact-copy {
         position: relative;
         z-index: 2;
@@ -4586,10 +4535,6 @@
         opacity: 0.7;
       }
       @media (max-width: 900px) {
-        .hero-assurance {
-          font-size: 0.62rem;
-          max-width: 28rem;
-        }
         .contact-copy {
           margin-top: -2rem;
           max-width: 90%;
@@ -6187,22 +6132,11 @@
         animation-delay: 1.1s;
       }
 
-      .evira-intro__word--ventures {
+      .evira-intro__word--evira {
         max-width: calc(100vw - 3rem);
-        font-size: clamp(3.2rem, 10.2vw, 9.8rem);
-        letter-spacing: -0.045em;
+        font-size: clamp(5rem, 16.5vw, 15.5rem);
+        letter-spacing: -0.035em;
         white-space: nowrap;
-        animation-delay: 2.12s;
-      }
-
-      .evira-intro__lockup {
-        animation-delay: 3.25s;
-      }
-
-      .evira-intro__lockup strong {
-        font-family: "Archivo Narrow", "Inter Tight", sans-serif;
-        font-weight: 700;
-        letter-spacing: -0.03em;
       }
 
       .evira-intro__footer {
@@ -6385,10 +6319,10 @@
           font-size: clamp(4.3rem, 22vw, 8rem);
         }
 
-        .evira-intro__word--ventures {
+        .evira-intro__word--evira {
           max-width: calc(100vw - 1.5rem);
-          font-size: clamp(2rem, 10vw, 4.4rem);
-          letter-spacing: -0.04em;
+          font-size: clamp(4.25rem, 21vw, 8rem);
+          letter-spacing: -0.025em;
         }
       }
 
@@ -6492,11 +6426,6 @@
         .hero-bottom > p {
           max-width: 47%;
           font-size: 0.82rem;
-        }
-
-        .hero-assurance {
-          margin-top: 0.6rem;
-          font-size: 0.52rem;
         }
 
         .hero-actions-restored {
@@ -6626,15 +6555,9 @@
           <span class="evira-intro__word evira-intro__word--community"
             >BRANDS</span
           >
-          <span class="evira-intro__word evira-intro__word--ventures"
-            >PARTNERSHIPS</span
+          <span class="evira-intro__word evira-intro__word--evira"
+            >EVIRA</span
           >
-        </div>
-        <div class="evira-intro__lockup">
-          <span aria-hidden="true" class="evira-mark evira-intro__mark"
-            ><i></i><i></i><i></i
-          ></span>
-          <strong>EVIRA</strong>
         </div>
       </div>
       <div aria-hidden="true" class="evira-intro__footer">
@@ -6687,10 +6610,6 @@
             <strong>Making creator partnerships easier.</strong>
             Evira connects brands with creators and handles the process from
             outreach to campaign delivery.
-            <span class="hero-assurance"
-              >Send us your campaign brief and we'll come back with relevant
-              creator options.</span
-            >
           </p>
           <div class="hero-actions-restored">
             <a
@@ -6767,7 +6686,7 @@
             id="media"
           >
             <div class="work-card-top">
-              <span>01</span><span>Creator / Sourcing</span>
+              <span>01</span><span>Creator sourcing</span>
             </div>
             <div aria-hidden="true" class="phone-stage">
               <div class="phone">
@@ -6793,8 +6712,7 @@
             <div class="work-card-bottom">
               <h3>Creator Sourcing</h3>
               <div>
-                <strong>FIT</strong
-                ><span>audience · relevance · brand alignment</span>
+                <span>audience · relevance · brand alignment</span>
               </div>
             </div>
           </article>
@@ -6804,7 +6722,7 @@
             id="community"
           >
             <div class="work-card-top">
-              <span>02</span><span>Outreach / Negotiation</span>
+              <span>02</span><span>Outreach &amp; negotiation</span>
             </div>
             <div aria-hidden="true" class="phone-stage">
               <div class="phone">
@@ -6830,7 +6748,7 @@
             <div class="work-card-bottom">
               <h3>Negotiation</h3>
               <div>
-                <strong>DEAL</strong><span>outreach · rates · usage</span>
+                <span>outreach · rates · usage</span>
               </div>
             </div>
           </article>
@@ -6840,7 +6758,7 @@
             id="ventures"
           >
             <div class="work-card-top">
-              <span>03</span><span>Contracts / Campaign</span>
+              <span>03</span><span>Contracts &amp; campaign</span>
             </div>
             <div aria-hidden="true" class="phone-stage">
               <div class="phone">
@@ -6866,8 +6784,7 @@
             <div class="work-card-bottom">
               <h3>Campaign Management</h3>
               <div>
-                <strong>OPS</strong
-                ><span>contracts · coordination · delivery</span>
+                <span>contracts · coordination · delivery</span>
               </div>
             </div>
           </article>
@@ -6961,7 +6878,6 @@
             <div>
               <span class="contact-route__label">For brands</span>
               <p>Planning a creator campaign?</p>
-              <small>We'll come back with relevant creator options.</small>
             </div>
             <a
               class="contact-cta contact-cta--brand"
@@ -7011,8 +6927,6 @@
         </div>
         <div class="footer-bottom">
           <span>© 2026 Evira Media</span
-          ><a href="mailto:applications@eviramedia.com"
-            >applications@eviramedia.com</a
           ><a href="#top">Back to top ↑</a>
         </div>
       </footer>
@@ -7155,8 +7069,11 @@
         const loader = document.getElementById("cremora-loader");
         const heroVideo = document.querySelector(".hero-motion-video");
         const startedAt = performance.now();
-        const minimumDuration = 4450;
-        const maximumDuration = 4450;
+        const reducedMotion = window.matchMedia?.(
+          "(prefers-reduced-motion: reduce)",
+        ).matches;
+        const minimumDuration = reducedMotion ? 0 : 620;
+        const maximumDuration = reducedMotion ? 0 : 620;
 
         if (heroVideo) {
           heroVideo.muted = true;
@@ -7190,7 +7107,7 @@
           window.setTimeout(() => {
             loader.remove();
             root.classList.remove("is-loading");
-          }, 1000);
+          }, 360);
         };
 
         Promise.race([
