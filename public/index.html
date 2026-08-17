@@ -6897,6 +6897,52 @@
         font-family: Arial, Helvetica, sans-serif;
       }
 
+      /* A quiet centre anchor gives the generous Focus layout a little more
+         atmosphere without competing with the headline or supporting copy. */
+      .difference--final {
+        position: relative;
+        isolation: isolate;
+        overflow: hidden;
+      }
+
+      .difference--final::before {
+        position: absolute;
+        z-index: -1;
+        top: 49%;
+        left: 47%;
+        content: "FOCUS";
+        color: rgba(7, 7, 7, 0.025);
+        font-size: clamp(11rem, 29vw, 32rem);
+        font-weight: 900;
+        line-height: 0.72;
+        letter-spacing: -0.09em;
+        white-space: nowrap;
+        -webkit-text-stroke: 1px rgba(7, 7, 7, 0.13);
+        transform: translate3d(-50%, calc(-50% + var(--focus-drift, 0px)), 0);
+        pointer-events: none;
+      }
+
+      .difference--final::after {
+        position: absolute;
+        z-index: -1;
+        top: 56%;
+        left: 62%;
+        width: clamp(14rem, 25vw, 25rem);
+        aspect-ratio: 1;
+        border: 1px solid rgba(7, 7, 7, 0.12);
+        border-radius: 50%;
+        content: "";
+        transform: translate3d(-50%, calc(-50% + var(--focus-ring-drift, 0px)), 0)
+          rotate(-12deg);
+        pointer-events: none;
+      }
+
+      .difference--final .evira-trust-label,
+      .difference--final .evira-trust {
+        position: relative;
+        z-index: 1;
+      }
+
       @media (max-width: 720px) {
         .evira-intro__sequence {
           width: calc(100vw - 1.25rem);
@@ -6942,6 +6988,20 @@
           margin-left: 0.65rem;
           transform: translateX(0.3rem);
           text-align: right;
+        }
+
+        .difference--final::before {
+          top: 43%;
+          left: 54%;
+          font-size: clamp(8rem, 32vw, 12rem);
+          opacity: 0.72;
+        }
+
+        .difference--final::after {
+          top: 48%;
+          left: 72%;
+          width: clamp(9rem, 34vw, 13rem);
+          opacity: 0.7;
         }
       }
 
@@ -7572,6 +7632,38 @@
             image.addEventListener("error", fail, { once: true });
           }
         });
+      })();
+    </script>
+    <script id="evira-focus-atmosphere-script">
+      (() => {
+        const focus = document.querySelector(".difference--final");
+        const reducedMotion = window.matchMedia?.(
+          "(prefers-reduced-motion: reduce)",
+        ).matches;
+        if (!focus || reducedMotion) return;
+
+        let ticking = false;
+        const update = () => {
+          const bounds = focus.getBoundingClientRect();
+          const distanceFromCentre =
+            bounds.top + bounds.height / 2 - window.innerHeight / 2;
+          const drift = Math.max(
+            -1,
+            Math.min(1, distanceFromCentre / window.innerHeight),
+          );
+          focus.style.setProperty("--focus-drift", `${drift * -18}px`);
+          focus.style.setProperty("--focus-ring-drift", `${drift * 12}px`);
+          ticking = false;
+        };
+        const onScroll = () => {
+          if (ticking) return;
+          ticking = true;
+          window.requestAnimationFrame(update);
+        };
+
+        window.addEventListener("scroll", onScroll, { passive: true });
+        window.addEventListener("resize", onScroll, { passive: true });
+        update();
       })();
     </script>
   </body>
