@@ -6527,6 +6527,144 @@
         }
       }
     </style>
+    <style id="evira-creative-director-pass">
+      /* A slower, cleaner intro gives each word a readable beat on every screen. */
+      .evira-intro__sequence {
+        width: min(calc(100vw - 2rem), 1500px);
+        height: clamp(5rem, 16vw, 15rem);
+      }
+
+      .evira-intro__word {
+        max-width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        font-size: clamp(3.8rem, 15.5vw, 14rem);
+        animation-duration: 0.74s;
+      }
+
+      .evira-intro__word--media {
+        animation-delay: 0.06s;
+      }
+
+      .evira-intro__word--community {
+        animation-delay: 0.86s;
+      }
+
+      .evira-intro__word--evira {
+        max-width: 100%;
+        font-size: clamp(3.8rem, 15.5vw, 14rem);
+        animation-delay: 1.66s;
+      }
+
+      @keyframes evira-intro-word {
+        0% {
+          opacity: 0;
+          transform: translate3d(0, 48%, 0);
+        }
+        15%,
+        78% {
+          opacity: 1;
+          transform: translate3d(0, 0, 0);
+        }
+        100% {
+          opacity: 0;
+          transform: translate3d(0, -48%, 0);
+        }
+      }
+
+      .cremora-loader.evira-intro.is-leaving
+        .evira-intro__stage,
+      .cremora-loader.evira-intro.is-leaving
+        .evira-intro__masthead,
+      .cremora-loader.evira-intro.is-leaving
+        .evira-intro__footer,
+      .cremora-loader.evira-intro.is-leaving
+        .evira-intro__grid {
+        animation-duration: 0.42s;
+      }
+
+      .cremora-loader.evira-intro.is-leaving .evira-intro__panel--top,
+      .cremora-loader.evira-intro.is-leaving .evira-intro__panel--bottom {
+        animation-duration: 0.54s;
+        animation-delay: 0s;
+      }
+
+      /* The work cards now step down the page, while the creator route reads as a
+         framed editorial note rather than another headline-and-copy split. */
+      @media (min-width: 901px) {
+        .work-card:nth-child(2) {
+          margin-top: clamp(3rem, 6vw, 7rem);
+        }
+
+        .work-card:nth-child(3) {
+          margin-top: clamp(6rem, 11vw, 12rem);
+        }
+
+        .services-heading h2 {
+          grid-column: 1 / 8;
+        }
+
+        .services-heading > p {
+          grid-column: 10 / 13;
+        }
+
+        .creator-route {
+          position: relative;
+          isolation: isolate;
+        }
+
+        .creator-route::after {
+          position: absolute;
+          right: 8vw;
+          bottom: 9rem;
+          width: clamp(11rem, 18vw, 18rem);
+          aspect-ratio: 1;
+          border: 1px solid rgba(7, 7, 7, 0.17);
+          border-radius: 50%;
+          content: "";
+          pointer-events: none;
+          transform: rotate(-12deg);
+        }
+
+        .creator-route__copy {
+          position: relative;
+          z-index: 1;
+          padding: 1.35rem 1.4rem;
+          border: 1px solid rgba(7, 7, 7, 0.38);
+          background: rgba(255, 255, 255, 0.28);
+          transform: translateY(1.5rem);
+        }
+
+        .contact-route:nth-child(2) {
+          transform: translateY(2rem);
+        }
+      }
+
+      @media (max-width: 720px) {
+        .evira-intro__sequence {
+          width: calc(100vw - 1rem);
+          height: clamp(4.2rem, 21vw, 8rem);
+        }
+
+        .evira-intro__word,
+        .evira-intro__word--evira {
+          max-width: 100%;
+          font-size: clamp(3rem, 16.8vw, 7.8rem);
+          letter-spacing: -0.045em;
+        }
+
+        .creator-route__copy {
+          padding: 1rem 0 0;
+          border-top: 1px solid rgba(7, 7, 7, 0.55);
+          background: transparent;
+          transform: none;
+        }
+
+        .contact-route:nth-child(2) {
+          transform: none;
+        }
+      }
+    </style>
   </head>
   <body>
     <div
@@ -6574,7 +6712,7 @@
         <nav aria-label="Main navigation" class="nav-links">
           <a href="#creators">Creators</a><a href="#work">Brands</a
           ><a href="#services">How It Works</a
-          ><a class="nav-cta" href="#contact">Contact ↗</a>
+          ><a class="nav-cta" href="#contact">Talk to Evira ↗</a>
         </nav>
         <button
           aria-expanded="false"
@@ -6614,8 +6752,8 @@
           <div class="hero-actions-restored">
             <a
               class="section-action hero-brief-cta"
-              href="mailto:partnerships@eviramedia.com?subject=Creator%20Campaign%20Brief"
-              >SEND US YOUR BRIEF <span>→</span></a
+              href="#work"
+              >SEE HOW WE WORK <span>→</span></a
             >
             <a
               aria-label="See how Evira works"
@@ -7072,8 +7210,9 @@
         const reducedMotion = window.matchMedia?.(
           "(prefers-reduced-motion: reduce)",
         ).matches;
-        const minimumDuration = reducedMotion ? 0 : 620;
-        const maximumDuration = reducedMotion ? 0 : 620;
+        // Give each word enough room to land while keeping the intro purposeful.
+        const minimumDuration = reducedMotion ? 0 : 2600;
+        const maximumDuration = reducedMotion ? 0 : 2600;
 
         if (heroVideo) {
           heroVideo.muted = true;
@@ -7107,7 +7246,7 @@
           window.setTimeout(() => {
             loader.remove();
             root.classList.remove("is-loading");
-          }, 360);
+          }, 560);
         };
 
         Promise.race([
