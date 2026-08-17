@@ -37,7 +37,7 @@
       name="twitter:image"
     />
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@500;600;700&family=Instrument+Serif:ital@0;1&family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap");
       :root {
         --orange: #7d2926;
         --orange-bright: #9b3934;
@@ -2263,8 +2263,7 @@
       .hero-motion-scrim {
         z-index: 1;
         pointer-events: none;
-        background:
-          linear-gradient(
+        background: linear-gradient(
             90deg,
             rgba(9, 10, 9, 0.56) 0%,
             rgba(9, 10, 9, 0.22) 52%,
@@ -2375,8 +2374,11 @@
           object-position: 58% center;
         }
         .hero-motion-scrim {
-          background:
-            linear-gradient(90deg, rgba(9, 10, 9, 0.62), rgba(9, 10, 9, 0.28)),
+          background: linear-gradient(
+              90deg,
+              rgba(9, 10, 9, 0.62),
+              rgba(9, 10, 9, 0.28)
+            ),
             linear-gradient(
               180deg,
               rgba(9, 10, 9, 0.54),
@@ -2540,8 +2542,7 @@
         filter: grayscale(0.48) saturate(0.68) contrast(1.12) brightness(0.54);
       }
       .hero-motion-scrim {
-        background:
-          linear-gradient(
+        background: linear-gradient(
             90deg,
             rgba(7, 7, 7, 0.66) 0%,
             rgba(7, 7, 7, 0.23) 52%,
@@ -2971,8 +2972,7 @@
         inset: 0;
         z-index: 3;
         pointer-events: none;
-        background:
-          linear-gradient(
+        background: linear-gradient(
             180deg,
             rgba(7, 7, 7, 0.05),
             transparent 48%,
@@ -3536,8 +3536,7 @@
         filter: grayscale(0.35) saturate(0.82) contrast(1.14) brightness(0.58);
       }
       .hero-motion-scrim {
-        background:
-          linear-gradient(
+        background: linear-gradient(
             90deg,
             rgba(7, 7, 7, 0.84) 0%,
             rgba(7, 7, 7, 0.28) 55%,
@@ -3690,8 +3689,7 @@
         color: rgba(255, 255, 255, 0.72);
       }
       .creator-shape--asset::before {
-        background:
-          linear-gradient(
+        background: linear-gradient(
             180deg,
             rgba(7, 7, 7, 0.04),
             transparent 48%,
@@ -4229,8 +4227,10 @@
         z-index: 1;
         pointer-events: none;
         opacity: 0.15;
-        background-image:
-          linear-gradient(rgba(244, 244, 240, 0.16) 1px, transparent 1px),
+        background-image: linear-gradient(
+            rgba(244, 244, 240, 0.16) 1px,
+            transparent 1px
+          ),
           linear-gradient(90deg, rgba(244, 244, 240, 0.12) 1px, transparent 1px);
         background-size:
           100% 25%,
@@ -5490,6 +5490,898 @@
         }
       }
     </style>
+    <style id="evira-art-direction-v3">
+      /* Premium agency art direction: cinematic restraint, decisive colour and clear pathways. */
+      :root {
+        --evira-ease: cubic-bezier(0.16, 1, 0.3, 1);
+        --evira-gutter: clamp(1.25rem, 3.25vw, 3.75rem);
+      }
+
+      html {
+        background: var(--ink);
+      }
+
+      body {
+        background: var(--ink);
+      }
+
+      .nav-shell {
+        top: clamp(0.75rem, 1.5vw, 1.4rem);
+        right: var(--evira-gutter);
+        left: var(--evira-gutter);
+        width: auto;
+        padding: 0.58rem 0.65rem 0.58rem 0.9rem;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 999px;
+        background: rgba(7, 7, 7, 0.58);
+        box-shadow: 0 14px 50px rgba(0, 0, 0, 0.18);
+        backdrop-filter: blur(18px) saturate(1.2);
+        -webkit-backdrop-filter: blur(18px) saturate(1.2);
+      }
+
+      .nav-shell .brand {
+        padding-left: 0.1rem;
+      }
+
+      .nav-links {
+        align-items: center;
+        gap: clamp(0.9rem, 1.7vw, 2rem);
+      }
+
+      .nav-links > a:not(.nav-cta) {
+        font-size: 0.69rem;
+        letter-spacing: 0.075em;
+        text-transform: uppercase;
+      }
+
+      .nav-cta {
+        min-height: 38px;
+        padding: 0.78rem 1.08rem;
+        border: 0;
+      }
+
+      .hero-motion-video {
+        filter: grayscale(0.2) saturate(0.92) contrast(1.18) brightness(0.62);
+        transform: scale(1.015);
+      }
+
+      .hero-motion-scrim {
+        background: linear-gradient(
+            180deg,
+            rgba(7, 7, 7, 0.38),
+            transparent 24%
+          ),
+          linear-gradient(90deg, rgba(7, 7, 7, 0.32), transparent 50%),
+          linear-gradient(0deg, rgba(7, 7, 7, 0.76), transparent 52%);
+      }
+
+      .hero h1 {
+        max-width: 8.4ch;
+        text-shadow: 0 18px 70px rgba(0, 0, 0, 0.3);
+      }
+
+      .ticker {
+        border-top-color: rgba(255, 255, 255, 0.26);
+      }
+
+      .manifesto,
+      .difference--final {
+        isolation: isolate;
+        overflow: hidden;
+      }
+
+      .manifesto {
+        position: relative;
+        padding: clamp(6rem, 9vw, 10rem) var(--evira-gutter)
+          clamp(7rem, 10vw, 11rem);
+        background: var(--signal);
+        color: var(--ink);
+        box-shadow: none;
+      }
+
+      .manifesto::before,
+      .difference--final::before {
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        content: "";
+        opacity: 0.24;
+        background-image: linear-gradient(
+            rgba(7, 7, 7, 0.19) 1px,
+            transparent 1px
+          ),
+          linear-gradient(90deg, rgba(7, 7, 7, 0.19) 1px, transparent 1px);
+        background-size:
+          100% 25%,
+          25% 100%;
+        pointer-events: none;
+      }
+
+      .manifesto .section-label {
+        border-top-color: rgba(7, 7, 7, 0.62);
+        color: var(--ink);
+      }
+
+      .manifesto .section-label span:first-child {
+        color: var(--ink);
+      }
+
+      .manifesto-final {
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        padding-top: clamp(4.5rem, 7vw, 8rem);
+        align-items: end;
+      }
+
+      .manifesto-final__headline {
+        grid-column: 1 / 9;
+        max-width: 8.4ch;
+        font-family: "Archivo Narrow", "Inter Tight", sans-serif;
+        font-size: clamp(5rem, 8.5vw, 10.4rem);
+        font-weight: 700;
+        line-height: 0.78;
+        letter-spacing: -0.047em;
+      }
+
+      .manifesto-final__headline em {
+        display: block;
+        margin-top: 0.08em;
+        font-family: "Instrument Serif", Georgia, serif;
+        font-weight: 400;
+        line-height: 0.8;
+        letter-spacing: -0.045em;
+      }
+
+      .manifesto-final__copy {
+        grid-column: 9 / 13;
+        grid-template-columns: 1fr 1fr;
+        gap: clamp(1rem, 2vw, 2rem);
+        max-width: none;
+        padding-bottom: 0.65rem;
+        font-size: clamp(0.92rem, 1.02vw, 1.08rem);
+        line-height: 1.46;
+      }
+
+      .manifesto-final__copy p,
+      .manifesto-final__copy p:last-child {
+        min-height: 10rem;
+        margin: 0;
+        padding: 1rem 0 0;
+        border-top: 1px solid rgba(7, 7, 7, 0.62);
+        font-weight: 600;
+      }
+
+      .manifesto-final__copy p::before {
+        color: rgba(7, 7, 7, 0.62);
+      }
+
+      .work {
+        position: relative;
+        padding: clamp(7rem, 10vw, 11rem) var(--evira-gutter)
+          clamp(8rem, 12vw, 13rem);
+        background: var(--ink);
+      }
+
+      .work::before,
+      .services::before,
+      .contact::before {
+        position: absolute;
+        inset: 0;
+        content: "";
+        pointer-events: none;
+        background: linear-gradient(
+            90deg,
+            transparent 49.95%,
+            rgba(255, 255, 255, 0.055) 50%,
+            transparent 50.05%
+          ),
+          linear-gradient(
+            180deg,
+            transparent 49.95%,
+            rgba(255, 255, 255, 0.045) 50%,
+            transparent 50.05%
+          );
+      }
+
+      .work .section-head {
+        position: relative;
+        z-index: 1;
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        row-gap: clamp(3.5rem, 6vw, 6.5rem);
+        margin-bottom: clamp(5.5rem, 9vw, 10rem);
+      }
+
+      .work .section-head > div {
+        grid-column: 1 / 13;
+        padding-top: 0.9rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .work .section-head > div p {
+        margin-right: auto;
+        margin-left: clamp(1.5rem, 8vw, 10rem);
+      }
+
+      .work .section-head h2 {
+        grid-column: 1 / 10;
+        max-width: 8.8ch;
+        font-family: "Archivo Narrow", "Inter Tight", sans-serif;
+        font-size: clamp(5rem, 8vw, 9.8rem);
+        font-weight: 700;
+        line-height: 0.8;
+        letter-spacing: -0.05em;
+      }
+
+      .work .section-head h2 em {
+        display: block;
+        margin-top: 0.07em;
+        font-family: "Instrument Serif", Georgia, serif;
+        font-weight: 400;
+        line-height: 0.8;
+        letter-spacing: -0.043em;
+      }
+
+      .work .section-head .section-intro {
+        grid-column: 10 / 13;
+        align-self: end;
+        display: grid;
+        gap: 1.8rem;
+        max-width: none;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.3);
+        color: rgba(244, 245, 245, 0.72);
+        font-size: clamp(0.98rem, 1.13vw, 1.16rem);
+        line-height: 1.48;
+      }
+
+      .section-intro p {
+        margin: 0;
+      }
+
+      .section-action {
+        display: inline-flex;
+        width: fit-content;
+        align-items: center;
+        gap: 0.85rem;
+        min-height: 46px;
+        padding: 0.95rem 1.25rem;
+        border-radius: 999px;
+        background: var(--signal);
+        color: var(--ink);
+        font-size: 0.7rem;
+        font-weight: 900;
+        line-height: 1;
+        letter-spacing: 0.075em;
+        text-transform: uppercase;
+        transition:
+          transform 0.35s var(--evira-ease),
+          background 0.35s ease;
+      }
+
+      .section-action span {
+        font-size: 1rem;
+        transition: transform 0.35s var(--evira-ease);
+      }
+
+      .section-action:hover {
+        background: var(--white);
+        transform: translateY(-2px);
+      }
+
+      .section-action:hover span {
+        transform: translate(2px, -2px);
+      }
+
+      .work-grid {
+        position: relative;
+        z-index: 1;
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        gap: clamp(0.85rem, 1.35vw, 1.5rem);
+        align-items: start;
+      }
+
+      .work-card {
+        grid-column: span 4;
+        min-height: clamp(610px, 53vw, 780px);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 0;
+        box-shadow: 0 34px 90px rgba(0, 0, 0, 0.24);
+        transition:
+          transform 0.65s var(--evira-ease),
+          box-shadow 0.65s var(--evira-ease),
+          border-color 0.4s ease;
+      }
+
+      .work-card:nth-child(2) {
+        margin-top: clamp(2.5rem, 5vw, 6rem);
+      }
+
+      .work-card:hover {
+        z-index: 2;
+        border-color: rgba(236, 255, 32, 0.5);
+        box-shadow: 0 44px 110px rgba(0, 0, 0, 0.38);
+        transform: translateY(-10px);
+      }
+
+      .work-card .phone-stage {
+        overflow: hidden;
+      }
+
+      .work-card .creator-shape--asset img,
+      .work-card .phone-image {
+        transition: transform 1.1s var(--evira-ease);
+      }
+
+      .work-card:hover .creator-shape--asset img,
+      .work-card:hover .phone-image {
+        transform: scale(1.035);
+      }
+
+      .work-card-bottom {
+        min-height: 128px;
+        border-top-color: rgba(7, 7, 7, 0.42);
+      }
+
+      .work-card-bottom h3 {
+        font-family: "Archivo Narrow", "Inter Tight", sans-serif;
+        font-size: clamp(2.3rem, 3.05vw, 3.7rem);
+        font-weight: 700;
+      }
+
+      .creator-route {
+        padding: clamp(7rem, 10vw, 11rem) var(--evira-gutter)
+          clamp(8rem, 11vw, 12rem);
+        background: var(--paper);
+        color: var(--ink);
+        box-shadow: none;
+      }
+
+      .creator-route__label {
+        grid-template-columns: 1fr 11fr;
+        border-top-color: rgba(7, 7, 7, 0.52);
+      }
+
+      .creator-route__label span:first-child {
+        color: var(--ink);
+      }
+
+      .creator-route__main {
+        padding-top: clamp(4.5rem, 7vw, 8rem);
+      }
+
+      .creator-route__main h2 {
+        grid-column: 1 / 10;
+        max-width: 8.7ch;
+        color: var(--ink);
+        font-family: "Archivo Narrow", "Inter Tight", sans-serif;
+        font-size: clamp(5rem, 8.15vw, 10rem);
+        font-weight: 700;
+        line-height: 0.79;
+        letter-spacing: -0.05em;
+      }
+
+      .creator-route__main h2 em {
+        margin-top: 0.08em;
+        color: var(--ink);
+        font-family: "Instrument Serif", Georgia, serif;
+        font-weight: 400;
+        line-height: 0.8;
+      }
+
+      .creator-route__copy {
+        grid-column: 10 / 13;
+        max-width: none;
+        padding-top: 1rem;
+        border-top-color: rgba(7, 7, 7, 0.55);
+        color: rgba(7, 7, 7, 0.7);
+      }
+
+      .creator-route__copy::before {
+        color: rgba(7, 7, 7, 0.56);
+      }
+
+      .creator-route__assurance {
+        color: var(--ink);
+      }
+
+      .creator-route__footer {
+        border-top-color: rgba(7, 7, 7, 0.52);
+        border-bottom-color: rgba(7, 7, 7, 0.22);
+      }
+
+      .creator-route__capabilities {
+        color: rgba(7, 7, 7, 0.58);
+      }
+
+      .creator-route__cta {
+        background: var(--ink);
+        color: var(--signal);
+      }
+
+      .creator-route__cta:hover {
+        background: var(--signal);
+        color: var(--ink);
+      }
+
+      .services {
+        position: relative;
+        overflow: hidden;
+        padding: clamp(7rem, 10vw, 11rem) var(--evira-gutter)
+          clamp(8rem, 11vw, 12rem);
+        background: var(--ink);
+        color: var(--paper);
+      }
+
+      .services .section-label {
+        border-top-color: rgba(255, 255, 255, 0.3);
+        color: var(--paper);
+      }
+
+      .services .section-label span:first-child {
+        color: var(--signal);
+      }
+
+      .services-heading {
+        position: relative;
+        z-index: 1;
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        padding: clamp(4.5rem, 7vw, 8rem) 0 clamp(5rem, 8vw, 9rem);
+      }
+
+      .services-heading h2 {
+        grid-column: 1 / 10;
+        max-width: 7.8ch;
+        font-family: "Archivo Narrow", "Inter Tight", sans-serif;
+        font-size: clamp(5rem, 8.2vw, 10rem);
+        font-weight: 700;
+        line-height: 0.79;
+        letter-spacing: -0.05em;
+      }
+
+      .services-heading h2 em {
+        font-family: "Instrument Serif", Georgia, serif;
+        font-weight: 400;
+      }
+
+      .services-heading > p {
+        grid-column: 10 / 13;
+        align-self: end;
+        max-width: 26ch;
+        color: rgba(244, 245, 245, 0.68);
+      }
+
+      .service-list {
+        position: relative;
+        z-index: 1;
+        border-top-color: rgba(255, 255, 255, 0.42);
+        box-shadow: none;
+      }
+
+      .service-row,
+      .service-row:nth-child(even) {
+        min-height: clamp(130px, 10vw, 170px);
+        border-bottom-color: rgba(255, 255, 255, 0.2);
+        background: transparent;
+        color: var(--paper);
+        transition:
+          color 0.35s ease,
+          background 0.45s var(--evira-ease),
+          padding 0.45s var(--evira-ease);
+      }
+
+      .service-row h3 {
+        font-family: "Archivo Narrow", "Inter Tight", sans-serif;
+        font-size: clamp(3.5rem, 5.8vw, 7rem);
+        font-weight: 700;
+        line-height: 0.8;
+      }
+
+      .service-row > p,
+      .service-number {
+        color: rgba(244, 245, 245, 0.62);
+        transition: color 0.35s ease;
+      }
+
+      .service-row:hover {
+        padding-right: 1.25rem;
+        padding-left: 1.25rem;
+        background: var(--signal);
+        color: var(--ink);
+      }
+
+      .service-row:hover > p,
+      .service-row:hover .service-number {
+        color: rgba(7, 7, 7, 0.7);
+      }
+
+      .difference--final {
+        position: relative;
+        padding: clamp(7rem, 10vw, 11rem) var(--evira-gutter)
+          clamp(8rem, 11vw, 12rem) !important;
+        background: var(--signal) !important;
+        color: var(--ink) !important;
+      }
+
+      .difference--final .section-label {
+        border-top-color: rgba(7, 7, 7, 0.6);
+        color: var(--ink);
+      }
+
+      .difference--final .section-label span:first-child {
+        color: var(--ink);
+      }
+
+      .evira-trust {
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        padding-top: clamp(4.5rem, 7vw, 8rem);
+        align-items: end;
+      }
+
+      .evira-trust h2 {
+        grid-column: 1 / 10;
+        max-width: 6.2ch;
+        color: var(--ink);
+        font-family: "Archivo Narrow", "Inter Tight", sans-serif;
+        font-size: clamp(6rem, 11.4vw, 13.8rem);
+        font-weight: 700;
+        line-height: 0.72;
+        letter-spacing: -0.055em;
+      }
+
+      .evira-trust h2 em {
+        display: block;
+        margin-top: 0.08em;
+        font-family: "Instrument Serif", Georgia, serif;
+        font-weight: 400;
+        line-height: 0.76;
+      }
+
+      .evira-trust__copy {
+        grid-column: 10 / 13;
+        max-width: none;
+        padding-top: 1rem;
+        border-top-color: rgba(7, 7, 7, 0.58);
+        color: rgba(7, 7, 7, 0.72);
+      }
+
+      .evira-trust__copy p:first-child {
+        color: var(--ink);
+        font-size: 0.72rem;
+        font-weight: 900;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+      }
+
+      .contact {
+        position: relative;
+        overflow: hidden;
+        padding: clamp(8rem, 11vw, 12rem) var(--evira-gutter)
+          clamp(6rem, 8vw, 9rem);
+        background: var(--ink);
+      }
+
+      .contact h2 {
+        position: relative;
+        z-index: 1;
+        max-width: 7.5ch;
+        font-family: "Archivo Narrow", "Inter Tight", sans-serif;
+        font-size: clamp(6rem, 10.5vw, 12.5rem);
+        font-weight: 700;
+        line-height: 0.75;
+        letter-spacing: -0.052em;
+      }
+
+      .contact h2 em {
+        font-family: "Instrument Serif", Georgia, serif;
+        font-weight: 400;
+      }
+
+      .contact-routes {
+        margin-top: clamp(5rem, 8vw, 9rem);
+        border-top: 1px solid rgba(255, 255, 255, 0.28);
+      }
+
+      .contact-route {
+        min-height: 220px;
+        transition:
+          background 0.4s var(--evira-ease),
+          padding 0.4s var(--evira-ease);
+      }
+
+      .contact-route:hover {
+        padding-right: clamp(1rem, 2vw, 2rem);
+        padding-left: clamp(1rem, 2vw, 2rem);
+        background: rgba(255, 255, 255, 0.045);
+      }
+
+      [data-reveal] {
+        will-change: transform, opacity;
+        transition:
+          opacity 0.7s var(--evira-ease),
+          transform 1s var(--evira-ease);
+      }
+
+      [data-reveal][data-visible="false"] {
+        opacity: 0;
+        transform: translate3d(0, 36px, 0);
+      }
+
+      [data-reveal][data-visible="true"] {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+
+      [data-word-reveal] .word-reveal__word {
+        transform: translate3d(0, 0.72em, 0) rotate(1.5deg);
+        transition:
+          opacity 0.5s var(--evira-ease),
+          transform 0.85s var(--evira-ease);
+        transition-delay: calc(var(--word-index, 0) * 38ms);
+        transform-origin: left bottom;
+      }
+
+      [data-visible="true"] [data-word-reveal] .word-reveal__word,
+      [data-word-reveal][data-visible="true"] .word-reveal__word {
+        transform: translate3d(0, 0, 0) rotate(0deg);
+      }
+
+      .cremora-loader.evira-intro {
+        --intro-accent: var(--signal);
+      }
+
+      .evira-intro__grid {
+        opacity: 0.2;
+        background-size:
+          100% 20%,
+          20% 100%;
+        mask-image: none;
+      }
+
+      .evira-intro__masthead {
+        font-size: clamp(0.58rem, 0.65vw, 0.7rem);
+        letter-spacing: 0.095em;
+      }
+
+      .evira-intro__sequence {
+        width: min(96vw, 1800px);
+        height: clamp(5.5rem, 17vw, 16rem);
+      }
+
+      .evira-intro__word {
+        font-family: "Archivo Narrow", "Inter Tight", sans-serif;
+        font-size: clamp(5rem, 16.5vw, 15.5rem);
+        font-weight: 700;
+        line-height: 0.72;
+        letter-spacing: -0.035em;
+        animation-timing-function: var(--evira-ease);
+      }
+
+      .evira-intro__word--media {
+        animation-delay: 0.12s;
+      }
+
+      .evira-intro__word--community {
+        animation-delay: 0.82s;
+      }
+
+      .evira-intro__word--ventures {
+        max-width: calc(100vw - 3rem);
+        font-size: clamp(3.4rem, 11vw, 10.7rem);
+        letter-spacing: -0.045em;
+        animation-delay: 1.52s;
+      }
+
+      .evira-intro__lockup {
+        animation-delay: 2.5s;
+      }
+
+      .evira-intro__lockup strong {
+        font-family: "Archivo Narrow", "Inter Tight", sans-serif;
+        font-weight: 700;
+        letter-spacing: -0.03em;
+      }
+
+      .evira-intro__footer {
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 1rem;
+      }
+
+      .evira-intro__counter {
+        display: flex;
+        min-width: 3.8rem;
+        justify-content: flex-end;
+        align-items: baseline;
+        color: var(--intro-fg);
+        font-family: "Archivo Narrow", "Inter Tight", sans-serif;
+        font-size: 1rem;
+        font-variant-numeric: tabular-nums;
+        line-height: 1;
+        letter-spacing: 0.02em;
+      }
+
+      .evira-intro__counter b,
+      .evira-intro__counter i {
+        font-style: normal;
+        font-weight: 600;
+      }
+
+      .evira-intro__counter i {
+        margin-left: 0.15rem;
+        color: var(--intro-accent);
+      }
+
+      @media (max-width: 980px) {
+        .manifesto-final__headline,
+        .work .section-head h2,
+        .creator-route__main h2,
+        .services-heading h2,
+        .evira-trust h2 {
+          grid-column: 1 / 9;
+        }
+
+        .manifesto-final__copy,
+        .work .section-head .section-intro,
+        .creator-route__copy,
+        .services-heading > p,
+        .evira-trust__copy {
+          grid-column: 6 / 9;
+          margin-top: 2rem;
+        }
+
+        .manifesto-final,
+        .work .section-head,
+        .creator-route__main,
+        .services-heading,
+        .evira-trust {
+          grid-template-columns: repeat(8, minmax(0, 1fr));
+        }
+
+        .manifesto-final__copy {
+          grid-template-columns: 1fr;
+        }
+
+        .manifesto-final__copy p,
+        .manifesto-final__copy p:last-child {
+          min-height: 0;
+          padding-bottom: 1rem;
+        }
+
+        .work-card {
+          min-height: 590px;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .nav-shell {
+          right: 0.75rem;
+          left: 0.75rem;
+        }
+
+        .manifesto,
+        .work,
+        .creator-route,
+        .services,
+        .contact {
+          padding-right: 5vw;
+          padding-left: 5vw;
+        }
+
+        .difference--final {
+          padding-right: 5vw !important;
+          padding-left: 5vw !important;
+        }
+
+        .manifesto-final,
+        .work .section-head,
+        .creator-route__main,
+        .services-heading,
+        .evira-trust {
+          display: grid;
+          grid-template-columns: 1fr;
+        }
+
+        .manifesto-final__headline,
+        .manifesto-final__copy,
+        .work .section-head > div,
+        .work .section-head h2,
+        .work .section-head .section-intro,
+        .creator-route__main h2,
+        .creator-route__copy,
+        .services-heading h2,
+        .services-heading > p,
+        .evira-trust h2,
+        .evira-trust__copy {
+          grid-column: 1;
+        }
+
+        .manifesto-final__headline,
+        .work .section-head h2,
+        .creator-route__main h2,
+        .services-heading h2 {
+          max-width: 100%;
+          font-size: clamp(3.9rem, 17vw, 6.2rem);
+          line-height: 0.82;
+        }
+
+        .evira-trust h2 {
+          max-width: 6.4ch;
+          font-size: clamp(4.8rem, 21vw, 7rem);
+        }
+
+        .manifesto-final__copy,
+        .work .section-head .section-intro,
+        .creator-route__copy,
+        .services-heading > p,
+        .evira-trust__copy {
+          max-width: 31ch;
+          margin: 2.5rem 0 0;
+        }
+
+        .manifesto-final__copy {
+          grid-template-columns: 1fr;
+        }
+
+        .work .section-head > div p {
+          margin-left: auto;
+        }
+
+        .work-grid {
+          grid-template-columns: 1fr;
+          gap: 1.25rem;
+        }
+
+        .work-card {
+          grid-column: 1;
+          min-height: 560px;
+        }
+
+        .work-card:nth-child(2) {
+          margin-top: 0;
+        }
+
+        .creator-route__label {
+          grid-template-columns: auto 1fr;
+        }
+
+        .service-row,
+        .service-row:nth-child(even) {
+          min-height: 128px;
+        }
+
+        .service-row h3 {
+          font-size: clamp(2.9rem, 13vw, 4.5rem);
+        }
+
+        .contact h2 {
+          font-size: clamp(4.8rem, 20vw, 7rem);
+        }
+
+        .evira-intro__masthead span:last-child {
+          display: none;
+        }
+
+        .evira-intro__word {
+          font-size: clamp(4.3rem, 22vw, 8rem);
+        }
+
+        .evira-intro__word--ventures {
+          max-width: calc(100vw - 1.5rem);
+          font-size: clamp(2.45rem, 11.6vw, 4.9rem);
+          letter-spacing: -0.04em;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        [data-reveal],
+        [data-word-reveal] .word-reveal__word,
+        .work-card,
+        .service-row,
+        .contact-route {
+          opacity: 1 !important;
+          transform: none !important;
+          transition: none !important;
+        }
+      }
+    </style>
   </head>
   <body>
     <div
@@ -5507,6 +6399,10 @@
         class="evira-intro__panel evira-intro__panel--bottom"
       ></div>
       <div aria-hidden="true" class="evira-intro__grid"></div>
+      <div aria-hidden="true" class="evira-intro__masthead">
+        <span>EVIRA MEDIA / 2026</span>
+        <span>CREATOR PARTNERSHIPS</span>
+      </div>
       <div aria-hidden="true" class="evira-intro__stage">
         <div class="evira-intro__sequence">
           <span class="evira-intro__word evira-intro__word--media"
@@ -5528,6 +6424,7 @@
       </div>
       <div aria-hidden="true" class="evira-intro__footer">
         <span class="evira-intro__rule"><i></i></span>
+        <span class="evira-intro__counter"><b>00</b><i>%</i></span>
       </div>
     </div>
     <main>
@@ -5601,12 +6498,16 @@
         </div>
         <div class="manifesto-final" data-reveal="true">
           <h2 class="manifesto-final__headline">
-            ONE CONNECTION.<br />BOTH SIDES.
+            ONE PARTNER.<br /><em>BOTH SIDES.</em>
           </h2>
           <div class="manifesto-final__copy">
-            <p>For brands, we find and manage the right creators.</p>
             <p>
-              For creators, we source, negotiate and manage brand partnerships.
+              Find the right creators and run every partnership through one
+              accountable team.
+            </p>
+            <p>
+              Access relevant brand opportunities without losing time to the
+              admin behind them.
             </p>
           </div>
         </div>
@@ -5617,13 +6518,18 @@
             <span class="section-index">(02)</span>
             <p>For brands</p>
           </div>
-          <h2>
-            REACH THE RIGHT CREATORS.<br /><em>WITHOUT THE OUTREACH MESS.</em>
-          </h2>
-          <p class="section-intro">
-            Creator sourcing, outreach, negotiation, contracts and campaign
-            coordination.
-          </p>
+          <h2>CREATOR CAMPAIGNS.<br /><em>WITHOUT THE CHAOS.</em></h2>
+          <div class="section-intro">
+            <p>
+              Evira finds the right creators, negotiates the deal and manages
+              every moving part from outreach to delivery.
+            </p>
+            <a
+              class="section-action"
+              href="mailto:partnerships@eviramedia.com?subject=Start%20a%20Creator%20Campaign"
+              >START A CAMPAIGN <span>↗</span></a
+            >
+          </div>
         </div>
         <div class="work-grid">
           <article
@@ -5743,9 +6649,7 @@
           <span>(03)</span><span>For creators</span>
         </div>
         <div class="creator-route__main" data-reveal="true">
-          <h2>
-            YOU BUILD THE AUDIENCE.<br /><em>WE BRING THE OPPORTUNITIES.</em>
-          </h2>
+          <h2>MORE OPPORTUNITY.<br /><em>LESS ADMIN.</em></h2>
           <div class="creator-route__copy">
             <p>
               We source relevant brand partnerships, negotiate the terms and
@@ -6010,10 +6914,25 @@
       (() => {
         const root = document.documentElement;
         const loader = document.getElementById("cremora-loader");
+        const loaderCounter = loader?.querySelector(".evira-intro__counter b");
         const heroVideo = document.querySelector(".hero-motion-video");
         const startedAt = performance.now();
         const minimumDuration = 3300;
         const maximumDuration = 3300;
+        let counterFrame;
+
+        const updateCounter = (now) => {
+          if (!loaderCounter || loader?.classList.contains("is-leaving"))
+            return;
+          const progress = Math.min(
+            99,
+            Math.floor(((now - startedAt) / minimumDuration) * 100),
+          );
+          loaderCounter.textContent = String(progress).padStart(2, "0");
+          counterFrame = requestAnimationFrame(updateCounter);
+        };
+
+        counterFrame = requestAnimationFrame(updateCounter);
 
         if (heroVideo) {
           heroVideo.muted = true;
@@ -6042,6 +6961,8 @@
 
         const finish = () => {
           if (!loader || loader.classList.contains("is-leaving")) return;
+          if (counterFrame) cancelAnimationFrame(counterFrame);
+          if (loaderCounter) loaderCounter.textContent = "100";
           root.classList.add("site-ready");
           loader.classList.add("is-leaving");
           window.setTimeout(() => {
