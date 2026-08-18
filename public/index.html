@@ -7933,6 +7933,13 @@
           padding-right: 0;
         }
 
+        /* Match the desktop hero's 3.25vw left edge; the mobile shell uses
+           a wider gutter elsewhere, but the headline should sit on the same
+           visual column as the desktop composition. */
+        .hero-heading {
+          margin-left: -1.75vw;
+        }
+
         /* Keep the action in the desktop-style right-hand position while
            centring its label and arrow as a single, balanced unit. */
         .hero-actions-restored .hero-brief-cta {
