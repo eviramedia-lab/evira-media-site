@@ -5,17 +5,17 @@
     <meta content="#070707" name="theme-color" />
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <title>Evira Media — Creator Partnerships for Brands &amp; Creators</title>
+    <title>Evira Media — Creator Campaigns, Managed</title>
     <meta
-      content="Evira connects brands with beauty, fashion and lifestyle creators and manages partnerships from outreach to campaign delivery."
+      content="Evira handles creator campaigns for brands, from sourcing and negotiation through campaign delivery."
       name="description"
     />
     <meta
-      content="Evira Media — Creator Partnerships for Brands &amp; Creators"
+      content="Evira Media — Creator Campaigns, Managed"
       property="og:title"
     />
     <meta
-      content="Evira connects brands with beauty, fashion and lifestyle creators and manages partnerships from outreach to campaign delivery."
+      content="Evira handles creator campaigns for brands, from sourcing and negotiation through campaign delivery."
       property="og:description"
     />
     <meta content="website" property="og:type" />
@@ -26,16 +26,16 @@
     <meta content="1200" property="og:image:width" />
     <meta content="630" property="og:image:height" />
     <meta
-      content="Evira — Where Brands Meet Creators"
+      content="Evira Media — Creator Campaigns, Managed"
       property="og:image:alt"
     />
     <meta content="summary_large_image" name="twitter:card" />
     <meta
-      content="Evira Media — Creator Partnerships for Brands &amp; Creators"
+      content="Evira Media — Creator Campaigns, Managed"
       name="twitter:title"
     />
     <meta
-      content="Evira connects brands with beauty, fashion and lifestyle creators and manages partnerships from outreach to campaign delivery."
+      content="Evira handles creator campaigns for brands, from sourcing and negotiation through campaign delivery."
       name="twitter:description"
     />
     <link
@@ -6924,6 +6924,85 @@
         line-height: 0.7;
       }
 
+      .hero-reassurance {
+        display: block;
+        margin-top: 0.15rem;
+        color: currentColor;
+        font-size: 0.62rem;
+        letter-spacing: 0.02em;
+        opacity: 0.68;
+      }
+
+      .creator-network-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+        margin: 0.2rem 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .creator-network-tags li {
+        padding: 0.42rem 0.6rem;
+        border: 1px solid currentColor;
+        border-radius: 999px;
+        font-size: 0.62rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        opacity: 0.72;
+      }
+
+      .final-cta {
+        position: relative;
+        padding: clamp(7rem, 11vw, 12rem) var(--evira-gutter);
+        overflow: hidden;
+        background: var(--signal);
+        color: var(--ink);
+      }
+
+      .final-cta h2 {
+        max-width: 10ch;
+        margin: 1.5rem 0 clamp(2.5rem, 5vw, 5rem);
+        font-family: "Archivo Narrow", "Inter Tight", sans-serif;
+        font-size: clamp(4.8rem, 10vw, 12rem);
+        font-weight: 700;
+        line-height: 0.76;
+        letter-spacing: -0.055em;
+      }
+
+      .final-cta h2 em {
+        font-family: "Instrument Serif", Georgia, serif;
+        font-weight: 400;
+      }
+
+      .final-cta .section-action {
+        color: var(--ink);
+      }
+
+      @media (max-width: 720px) {
+        .hero-reassurance {
+          max-width: 16ch;
+          line-height: 1.25;
+        }
+
+        .creator-network-tags {
+          gap: 0.35rem;
+        }
+
+        .creator-network-tags li {
+          font-size: 0.56rem;
+        }
+
+        .final-cta {
+          padding-top: 6rem;
+          padding-bottom: 6rem;
+        }
+
+        .final-cta h2 {
+          font-size: clamp(4rem, 16vw, 6rem);
+        }
+      }
+
       .evira-trust__copy .section-action {
         margin-top: 0.45rem;
         color: inherit;
@@ -7125,8 +7204,8 @@
         <nav aria-label="Main navigation" class="nav-links">
           <a href="#services">How It Works</a
           ><a href="#creators">Creator Network</a
-          ><a href="#contact">Contact</a
-          ><a class="nav-cta" href="#contact">Send Us Your Brief ↗︎</a>
+          ><a href="#creator-cta">For Creators</a
+          ><a class="nav-cta" href="#contact">Send a Brief ↗︎</a>
         </nav>
         <button
           aria-expanded="false"
@@ -7155,13 +7234,13 @@
           />
         </video>
         <div aria-hidden="true" class="hero-motion-scrim"></div>
-        <p class="eyebrow hero-kicker">CREATOR CAMPAIGNS · MANAGED END TO END</p>
-        <h1>CREATOR CAMPAIGNS.<br /><em>MANAGED END TO END.</em></h1>
+        <p class="eyebrow hero-kicker">CREATOR CAMPAIGNS, MANAGED</p>
+        <h1>YOUR CREATOR CAMPAIGN.<br /><em>HANDLED.</em></h1>
         <div class="hero-bottom">
           <p>
-            <strong>One partner for the creator operation.</strong>
-            Evira sources the right creators, negotiates partnerships and
-            manages campaigns from brief to delivery.
+            Tell us what you're promoting, who you want to reach and your
+            budget. Evira sources the creators, negotiates the partnerships and
+            manages the campaign through delivery.
           </p>
           <div class="hero-actions-restored">
             <a
@@ -7171,37 +7250,38 @@
               ><span>↗︎</span><span>Send us your brief</span></a
             >
             <a class="hero-secondary-link" href="#services"
-              >See how it works <span>↓</span></a
+              >How it works <span>↓</span></a
             >
+            <small class="hero-reassurance">From one creator to a full campaign.</small>
           </div>
         </div>
         <div aria-label="Evira operating pillars" class="ticker ticker--dark">
           <div>
-            <span>BRAND BRIEF</span><b>✦</b><span>CREATOR SOURCING</span
-            ><b>✦</b><span>NEGOTIATION</span><b>✦</b
-            ><span>CAMPAIGN MANAGEMENT</span><b>✦</b
-            ><span>BRAND BRIEF</span><b>✦</b><span>CREATOR SOURCING</span
-            ><b>✦</b><span>NEGOTIATION</span><b>✦</b
-            ><span>CAMPAIGN MANAGEMENT</span><b>✦</b>
+            <span>01 BRIEF</span><b>→</b><span>02 SOURCE</span><b>→</b
+            ><span>03 NEGOTIATE</span><b>→</b><span>04 MANAGE</span><b>→</b
+            ><span>05 LIVE</span><b>→</b><span>01 BRIEF</span><b>→</b
+            ><span>02 SOURCE</span><b>→</b><span>03 NEGOTIATE</span><b>→</b
+            ><span>04 MANAGE</span><b>→</b><span>05 LIVE</span><b>→</b>
           </div>
         </div>
       </section>
       <section class="manifesto" id="manifesto">
         <div class="section-label" data-reveal="true">
-          <span>(01)</span><span>What Evira does</span>
+          <span>(01)</span><span>One partner</span>
         </div>
         <div class="manifesto-final" data-reveal="true">
           <h2 class="manifesto-final__headline">
-            ONE BRIEF.<br /><em>ONE MANAGED CAMPAIGN.</em>
+            WE HANDLE THE<br /><em>CREATOR SIDE.</em>
           </h2>
           <div class="manifesto-final__copy">
             <p>
-              Give Evira the campaign brief and one partner handles the creator
-              operation from first outreach to final delivery.
+              No searching through hundreds of profiles. No managing twenty
+              separate conversations. No negotiating every partnership
+              yourself.
             </p>
             <p>
-              We keep the process focused, clear and accountable for the brand
-              at every stage.
+              Give Evira the campaign and we coordinate the creator operation
+              around it.
             </p>
           </div>
         </div>
@@ -7342,18 +7422,26 @@
       </section>
       <section class="creator-route" id="creators">
         <div class="creator-route__label" data-reveal="true">
-          <span>(03)</span><span>Creator network</span>
+          <span>(03)</span><span>The network</span>
         </div>
         <div class="creator-route__main" data-reveal="true">
-          <h2>THE CREATOR<br /><em>NETWORK.</em></h2>
+          <h2>CREATORS FOR THE CAMPAIGN.<br /><em>NOT A CATALOGUE TO SEARCH.</em></h2>
           <div class="creator-route__copy">
             <p>
-              A growing network of creators available for brand campaigns
-              across relevant niches, platforms and markets.
+              Evira works with creators across relevant categories, platforms
+              and audience sizes. We build the creator mix around the brief
+              rather than forcing campaigns into a fixed roster.
             </p>
             <p class="creator-route__assurance">
-              Beauty · fashion · lifestyle · culture · entertainment.
+              Creator supply built around the campaign.
             </p>
+            <ul class="creator-network-tags" aria-label="Creator categories">
+              <li>Beauty</li>
+              <li>Fashion</li>
+              <li>Lifestyle</li>
+              <li>Entertainment</li>
+              <li>Culture</li>
+            </ul>
           </div>
         </div>
         <div class="creator-route__footer" data-reveal="true">
@@ -7363,7 +7451,7 @@
           <a
             class="creator-route__cta"
             href="mailto:applications@eviramedia.com?subject=Creator%20Application"
-            >CREATOR? WORK WITH EVIRA →︎</a
+            >CREATOR? JOIN THE NETWORK →︎</a
           >
         </div>
       </section>
@@ -7373,71 +7461,66 @@
         </div>
         <div class="services-heading" data-reveal="true">
           <h2>FROM BRIEF<br /><em>TO LIVE.</em></h2>
-          <p>One clear, brand-facing process from brief to publication.</p>
+          <p>From brief to live content, Evira runs the creator operation.</p>
         </div>
         <div class="service-list">
           <article class="service-row" data-reveal="true">
             <span class="service-number">01</span>
-            <h3>Brief</h3>
-            <p>Tell us the objective, audience, budget and deliverables.</p>
+            <h3>Send the brief</h3>
+            <p>Tell us what you're promoting, who you want to reach, the deliverables and your budget.</p>
             <span class="service-arrow">↗︎</span>
           </article>
           <article class="service-row" data-reveal="true">
             <span class="service-number">02</span>
-            <h3>Shortlist</h3>
-            <p>Evira builds a curated creator shortlist around the campaign.</p>
+            <h3>Build the shortlist</h3>
+            <p>Evira identifies creators suited to the campaign and begins outreach.</p>
             <span class="service-arrow">↗︎</span>
           </article>
           <article class="service-row" data-reveal="true">
             <span class="service-number">03</span>
-            <h3>Agreements</h3>
-            <p>We handle outreach, negotiation and creator agreements.</p>
+            <h3>Secure the deals</h3>
+            <p>We negotiate rates, deliverables and campaign terms.</p>
             <span class="service-arrow">↗︎</span>
           </article>
           <article class="service-row" data-reveal="true">
             <span class="service-number">04</span>
-            <h3>Delivery</h3>
-            <p>We coordinate creators and manage content through publication.</p>
+            <h3>Manage delivery</h3>
+            <p>Evira coordinates the creator side through content delivery and publication.</p>
             <span class="service-arrow">↗︎</span>
           </article>
           <article class="service-row" data-reveal="true">
             <span class="service-number">05</span>
-            <h3>Repeat</h3>
-            <p>Successful creator relationships can be activated again.</p>
+            <h3>Scale what works</h3>
+            <p>Strong creator relationships can be activated again across future campaigns.</p>
             <span class="service-arrow">↗︎</span>
           </article>
         </div>
       </section>
-      <section class="difference difference--final" id="brand-cta">
+      <section class="difference difference--final" id="statement">
         <div
           class="section-label section-label--cream evira-trust-label"
           data-reveal="true"
         >
-          <span>(05)</span><span>For brands</span>
+          <span>(05)</span><span>One point of contact</span>
         </div>
         <div class="evira-trust" data-reveal="true">
-          <h2>HAVE A CAMPAIGN<br /><em>IN MIND?</em></h2>
+          <h2>ONE BRIEF.<br /><em>ONE POINT OF CONTACT.</em><br />MULTIPLE CREATORS.</h2>
           <div class="evira-trust__copy">
             <p>BRAND BRIEF · CREATOR OPERATION</p>
             <p>
-              Send Evira the brief. We'll handle the creator side.
+              Instead of coordinating every creator individually, work through Evira.
             </p>
-            <a
-              class="section-action"
-              href="mailto:partnerships@eviramedia.com?subject=Creator%20Partnership%20Enquiry"
-              >SEND US YOUR BRIEF <span>→︎</span></a
-            >
           </div>
         </div>
       </section>
       <section class="contact" id="contact">
-        <p class="eyebrow">Contact Evira</p>
-        <h2>START WITH<br /><em>EVIRA.</em></h2>
+        <p class="eyebrow">Start a campaign</p>
+        <h2>TELL US WHAT<br /><em>YOU NEED.</em></h2>
         <div class="contact-routes">
           <article class="contact-route" data-reveal="true">
             <div>
               <span class="contact-route__label">For brands</span>
-              <p>Send Evira the brief. We'll handle the creator side.</p>
+              <p>Send the campaign objective, audience, deliverables and approximate budget. We'll take it from there.</p>
             </div>
             <a
               class="contact-email"
@@ -7445,10 +7528,14 @@
               >partnerships@eviramedia.com</a
             >
           </article>
-          <article class="contact-route contact-route--secondary" data-reveal="true">
+          <article
+            class="contact-route contact-route--secondary"
+            data-reveal="true"
+            id="creator-cta"
+          >
             <div>
-              <span class="contact-route__label">Creator?</span>
-              <p>Interested in being considered for future brand campaigns? Work with Evira.</p>
+              <span class="contact-route__label">For creators</span>
+              <p>Join Evira's creator network to be considered when a brand campaign matches your content and audience.</p>
             </div>
             <a
               class="contact-email"
@@ -7458,14 +7545,23 @@
           </article>
         </div>
       </section>
-      <footer>
+      <section class="final-cta" id="final-cta">
+        <p class="eyebrow">Start a campaign</p>
+        <h2>GOT A CAMPAIGN?<br /><em>LET'S FIND THE CREATORS.</em></h2>
+        <a
+          class="section-action"
+          href="mailto:partnerships@eviramedia.com?subject=Creator%20Partnership%20Enquiry"
+          >SEND US YOUR BRIEF <span>→︎</span></a
+        >
+      </section>
+      <footer id="privacy">
         <div class="footer-identity-restored">
           <a class="brand brand--footer" href="#top"
             ><span aria-hidden="true" class="evira-mark evira-mark--small"
               ><i></i><i></i><i></i></span
             ><span>Evira Media</span></a
           >
-          <p>Brand creator campaigns, managed end to end.</p>
+          <p>Creator campaigns, managed end to end.</p>
         </div>
         <div class="footer-columns">
           <div>
@@ -7474,15 +7570,11 @@
           </div>
           <div>
             <span>Partnerships</span><a href="#services">How it works</a
-            ><a href="#brand-cta">For brands</a>
+            ><a href="#creators">Creator network</a>
           </div>
           <div>
-            <span>Contact</span
-            ><a href="mailto:partnerships@eviramedia.com"
-              >partnerships@eviramedia.com</a
-            ><a href="mailto:applications@eviramedia.com"
-              >applications@eviramedia.com</a
-            >
+            <span>More</span><a href="#creator-cta">For creators</a
+            ><a href="#contact">Contact</a><a href="#privacy">Privacy</a>
           </div>
         </div>
         <div class="footer-bottom">
