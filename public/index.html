@@ -7923,6 +7923,25 @@
         }
       }
     </style>
+    <style id="evira-mobile-hero-alignment">
+      @media (max-width: 720px) {
+        /* The mobile headline is the second span in the h1; reset the desktop
+           right-edge rule so its left edge matches the desktop composition. */
+        .hero h1 > span:nth-child(2) {
+          align-self: flex-start;
+          padding-right: 0;
+        }
+
+        /* Keep the action in the desktop-style right-hand position while
+           centring its label and arrow as a single, balanced unit. */
+        .hero-actions-restored .hero-brief-cta {
+          align-self: flex-end;
+          margin-left: auto;
+          justify-content: center;
+          gap: 1rem;
+        }
+      }
+    </style>
   </head>
   <body>
     <div
