@@ -7386,6 +7386,36 @@
         }
       }
     </style>
+    <style id="evira-hero-brief-fix">
+      .hero-brief-cta {
+        white-space: normal;
+        text-align: center;
+        align-items: center;
+      }
+
+      .hero-brief-cta span:first-child {
+        align-self: flex-start;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.25rem;
+        line-height: 1;
+      }
+
+      .hero-brief-cta span:last-child {
+        display: block;
+        max-width: 11ch;
+        font-size: clamp(0.54rem, 0.68vw, 0.68rem);
+        line-height: 1.05;
+        letter-spacing: 0.015em;
+        text-align: center;
+      }
+
+      @media (max-width: 540px) {
+        .hero-brief-cta span:last-child {
+          max-width: 9ch;
+          font-size: 0.48rem;
+        }
+      }
+    </style>
   </head>
   <body>
     <div
@@ -7482,7 +7512,7 @@
               aria-label="Send Evira your campaign brief"
               class="round-link hero-brief-cta"
               href="mailto:partnerships@eviramedia.com?subject=Creator%20Partnership%20Enquiry"
-              ><span>↗︎</span><span>Send us your brief</span></a
+              ><span>↓</span><span>Send us your brief</span></a
             >
             <a class="hero-secondary-link" href="#services"
               >How it works <span>↓</span></a
