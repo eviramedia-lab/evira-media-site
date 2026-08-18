@@ -7151,6 +7151,241 @@
         }
       }
     </style>
+    <style id="evira-layout-clarity-fixes">
+      /* Layout clarity pass: strengthen the existing editorial grid without
+         changing the photography, palette or motion language. */
+      .creator-route__main h2 {
+        grid-column: 2 / 10;
+        max-width: 12ch;
+      }
+
+      .creator-route__copy {
+        grid-column: 10 / 13;
+        max-width: 34ch;
+        font-size: clamp(1.05rem, 1.35vw, 1.3rem);
+        line-height: 1.38;
+      }
+
+      .difference--final {
+        background: var(--signal) !important;
+        color: var(--ink) !important;
+        padding-top: clamp(6rem, 9vw, 10rem) !important;
+        padding-bottom: clamp(7rem, 10vw, 11rem) !important;
+      }
+
+      .difference--final .evira-trust {
+        display: grid;
+        grid-template-columns: minmax(0, 1.25fr) minmax(20rem, 0.9fr);
+        gap: clamp(3rem, 6vw, 8rem);
+        padding-top: clamp(3.5rem, 6vw, 6rem);
+        align-items: end;
+      }
+
+      .difference--final .evira-trust h2 {
+        grid-column: auto;
+        max-width: 10.5ch;
+        font-size: clamp(4.8rem, 8vw, 10.5rem);
+        line-height: 0.78;
+        letter-spacing: -0.055em;
+      }
+
+      .difference--final .evira-trust__copy {
+        grid-column: auto;
+        align-self: end;
+        max-width: 42ch;
+        padding: 1.25rem 0 0;
+        border-top: 1px solid rgba(7, 7, 7, 0.58);
+        display: grid;
+        gap: 1.25rem;
+        color: rgba(7, 7, 7, 0.78);
+        font-size: clamp(1rem, 1.3vw, 1.3rem);
+        line-height: 1.32;
+      }
+
+      .difference--final .evira-trust__copy p {
+        margin: 0;
+      }
+
+      .difference--final .evira-trust__copy p:first-child {
+        color: var(--ink);
+        font-size: 0.74rem;
+        font-weight: 900;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+      }
+
+      .difference--final .evira-trust__copy h3 {
+        max-width: 18ch;
+        margin: 0;
+        color: var(--ink);
+        font-size: clamp(1.8rem, 2.5vw, 3rem);
+        line-height: 0.96;
+        letter-spacing: -0.045em;
+        text-transform: uppercase;
+      }
+
+      .difference--final .evira-trust__flow {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.65rem;
+        padding-top: 0.25rem;
+        color: var(--ink);
+        font-size: 0.72rem;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+      }
+
+      .difference--final .evira-trust__flow b {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1rem;
+        font-weight: 400;
+      }
+
+      .difference--final::before {
+        top: 58%;
+        left: 67%;
+        opacity: 0.08;
+        font-size: clamp(9rem, 20vw, 24rem);
+      }
+
+      .difference--final::after {
+        top: 60%;
+        left: 75%;
+        width: clamp(12rem, 20vw, 20rem);
+        opacity: 0.75;
+      }
+
+      .hero-actions-restored {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto auto;
+        column-gap: clamp(2rem, 3.2vw, 3.5rem);
+        row-gap: 1.35rem;
+        align-items: center;
+      }
+
+      .hero-actions-restored .hero-brief-cta {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+      }
+
+      .hero-actions-restored .hero-secondary-link {
+        grid-column: 2;
+        grid-row: 1;
+        align-self: end;
+      }
+
+      .hero-actions-restored .hero-reassurance {
+        grid-column: 2;
+        grid-row: 2;
+        align-self: start;
+        margin-top: 0;
+        font-size: clamp(0.74rem, 0.9vw, 0.92rem);
+        line-height: 1.25;
+      }
+
+      .hero-bottom > p,
+      .manifesto-final__copy,
+      .creator-route__copy,
+      .services-heading > p,
+      .evira-trust__copy {
+        font-size: clamp(1rem, 1.25vw, 1.3rem);
+      }
+
+      @media (max-width: 900px) {
+        .difference--final .evira-trust {
+          grid-template-columns: minmax(0, 1.1fr) minmax(16rem, 0.9fr);
+          gap: 2.5rem;
+        }
+
+        .difference--final .evira-trust h2 {
+          font-size: clamp(4rem, 10vw, 7rem);
+        }
+
+        .hero-actions-restored {
+          grid-template-columns: auto;
+          grid-template-rows: auto auto auto;
+          row-gap: 0.95rem;
+          align-items: flex-start;
+        }
+
+        .hero-actions-restored .hero-brief-cta,
+        .hero-actions-restored .hero-secondary-link,
+        .hero-actions-restored .hero-reassurance {
+          grid-column: 1;
+        }
+
+        .hero-actions-restored .hero-brief-cta {
+          grid-row: 1;
+        }
+
+        .hero-actions-restored .hero-secondary-link {
+          grid-row: 2;
+        }
+
+        .hero-actions-restored .hero-reassurance {
+          grid-row: 3;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .creator-route__main {
+          grid-template-columns: 1fr;
+          gap: 2.5rem;
+        }
+
+        .creator-route__main h2,
+        .creator-route__copy {
+          grid-column: 1;
+        }
+
+        .creator-route__main h2 {
+          max-width: 10.5ch;
+          font-size: clamp(3.7rem, 14vw, 6rem);
+        }
+
+        .creator-route__copy {
+          max-width: 34ch;
+          margin-top: 0;
+          font-size: clamp(1rem, 4.5vw, 1.18rem);
+        }
+
+        .difference--final .evira-trust {
+          grid-template-columns: 1fr;
+          gap: 3.25rem;
+        }
+
+        .difference--final .evira-trust h2,
+        .difference--final .evira-trust__copy {
+          grid-column: 1;
+        }
+
+        .difference--final .evira-trust h2 {
+          max-width: 10ch;
+          font-size: clamp(3.8rem, 14vw, 6.4rem);
+        }
+
+        .difference--final .evira-trust__copy {
+          max-width: 34ch;
+          font-size: clamp(1rem, 4.5vw, 1.18rem);
+        }
+
+        .hero-bottom > p {
+          max-width: min(31rem, 100%);
+          font-size: clamp(1rem, 4.2vw, 1.16rem);
+        }
+
+        .hero-actions-restored {
+          gap: 1.1rem;
+        }
+
+        .hero-actions-restored .hero-reassurance {
+          max-width: 24ch;
+          font-size: 0.82rem;
+        }
+      }
+    </style>
   </head>
   <body>
     <div
@@ -7422,18 +7657,18 @@
       </section>
       <section class="creator-route" id="creators">
         <div class="creator-route__label" data-reveal="true">
-          <span>(03)</span><span>The network</span>
+          <span>(03)</span><span>Creator sourcing</span>
         </div>
         <div class="creator-route__main" data-reveal="true">
-          <h2>CREATORS FOR THE CAMPAIGN.<br /><em>NOT A CATALOGUE TO SEARCH.</em></h2>
+          <h2>WE FIND THE RIGHT CREATORS<br /><em>FOR YOUR CAMPAIGN.</em></h2>
           <div class="creator-route__copy">
             <p>
-              Evira works with creators across relevant categories, platforms
-              and audience sizes. We build the creator mix around the brief
-              rather than forcing campaigns into a fixed roster.
+              Evira sources creators based on your audience, platform, campaign
+              goals and budget. We build the creator mix around the brief rather
+              than forcing campaigns into a fixed roster.
             </p>
             <p class="creator-route__assurance">
-              Creator supply built around the campaign.
+              No catalogue to search. No fixed roster to work around.
             </p>
             <ul class="creator-network-tags" aria-label="Creator categories">
               <li>Beauty</li>
@@ -7501,14 +7736,18 @@
           class="section-label section-label--cream evira-trust-label"
           data-reveal="true"
         >
-          <span>(05)</span><span>One point of contact</span>
+          <span>(05)</span><span>One brief</span>
         </div>
         <div class="evira-trust" data-reveal="true">
-          <h2>ONE BRIEF.<br /><em>ONE POINT OF CONTACT.</em><br />MULTIPLE CREATORS.</h2>
+          <h2>ONE BRIEF.<br /><em>ONE POINT<br />OF CONTACT.</em><br />MULTIPLE<br />CREATORS.</h2>
           <div class="evira-trust__copy">
-            <p>BRAND BRIEF · CREATOR OPERATION</p>
+            <p>BRAND BRIEF → CREATOR OPERATION</p>
+            <h3>ONE PARTNER BETWEEN YOUR BRAND AND EVERY CREATOR.</h3>
             <p>
-              Instead of coordinating every creator individually, work through Evira.
+              Instead of sourcing, negotiating with and coordinating every creator individually, work through Evira. One brief comes in. We handle the creator side.
+            </p>
+            <p class="evira-trust__flow" aria-label="Your brand to Evira to creators">
+              <span>YOUR BRAND</span><b>→</b><span>EVIRA</span><b>→</b><span>CREATORS</span>
             </p>
           </div>
         </div>
