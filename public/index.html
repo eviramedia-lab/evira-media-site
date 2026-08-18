@@ -7897,6 +7897,32 @@
         }
       }
     </style>
+    <style id="evira-mobile-header-loader-fit">
+      /* Keep the compact header's internal alignment identical to the desktop
+         shell; only the outer mobile gutter remains responsive. */
+      @media (max-width: 980px) {
+        .nav-shell {
+          padding: 0.58rem 0.65rem 0.58rem 0.9rem;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .evira-intro__sequence {
+          height: clamp(5.4rem, 23vw, 8.4rem);
+        }
+
+        .evira-intro__word--media,
+        .evira-intro__word--community,
+        .evira-intro__word--ventures {
+          font-size: clamp(2.9rem, 15vw, 6.1rem);
+          letter-spacing: -0.045em;
+        }
+
+        .evira-intro__word--ventures {
+          width: calc(100vw - 1.25rem);
+        }
+      }
+    </style>
   </head>
   <body>
     <div
