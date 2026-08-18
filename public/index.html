@@ -7878,31 +7878,21 @@
       }
     </style>
     <style id="evira-scroll-motion">
-      /* Scroll-only motion pass: preserve the existing composition while adding
-         a restrained sense of depth as each section enters the viewport. */
-      .hero-motion-video {
-        will-change: transform;
-      }
-
-      html.site-ready .hero-motion-video {
-        transform: translate3d(0, var(--evira-hero-video-y, 0px), 0) !important;
-      }
-
-      .work-card .phone-stage,
-      .services-heading > p,
-      .evira-trust__copy {
+      /* Keep the scroll treatment on compositor-friendly image stages only. */
+      .work-card .phone-stage {
         will-change: transform;
         transform: translate3d(0, var(--evira-scroll-drift, 0px), 0);
       }
 
-      @media (prefers-reduced-motion: reduce) {
-        html.site-ready .hero-motion-video {
-          transform: none !important;
+      @media (max-width: 720px) {
+        /* Keep the section kicker clear of the compact mobile header. */
+        .hero-kicker {
+          top: 104px;
         }
+      }
 
-        .work-card .phone-stage,
-        .services-heading > p,
-        .evira-trust__copy {
+      @media (prefers-reduced-motion: reduce) {
+        .work-card .phone-stage {
           transform: none !important;
         }
       }
@@ -8586,85 +8576,55 @@
         ).matches;
         if (reducedMotion) return;
 
-        const hero = document.querySelector(".hero");
-        const video = document.querySelector(".hero-motion-video");
         const floaters = Array.from(
-          document.querySelectorAll(
-            ".work-card .phone-stage, .services-heading > p, .evira-trust__copy",
-          ),
+          document.querySelectorAll(".work-card .phone-stage"),
         ).map((element, index) => ({
           element,
           phase: index % 2 === 0 ? 1 : -1,
-          current: 0,
-          target: 0,
+          top: 0,
+          height: 0,
         }));
 
-        let videoCurrent = 0;
-        let videoTarget = 0;
-        let measureFrame = 0;
-        let motionFrame = 0;
+        let frame = 0;
 
         const clamp = (value, minimum, maximum) =>
           Math.min(maximum, Math.max(minimum, value));
 
-        const animate = () => {
-          const videoDelta = videoTarget - videoCurrent;
-          videoCurrent += videoDelta * 0.14;
-          if (video) {
-            video.style.setProperty(
-              "--evira-hero-video-y",
-              `${videoCurrent.toFixed(2)}px`,
-            );
-          }
-
-          let moving = Math.abs(videoDelta) > 0.01;
-          floaters.forEach((item) => {
-            const delta = item.target - item.current;
-            item.current += delta * 0.14;
-            item.element.style.setProperty(
-              "--evira-scroll-drift",
-              `${item.current.toFixed(2)}px`,
-            );
-            if (Math.abs(delta) > 0.01) moving = true;
-          });
-
-          if (moving) {
-            motionFrame = window.requestAnimationFrame(animate);
-          } else {
-            motionFrame = 0;
-          }
-        };
-
-        const measure = () => {
-          measureFrame = 0;
-          if (hero && video) {
-            const bounds = hero.getBoundingClientRect();
-            const progress = clamp(
-              -bounds.top / Math.max(1, bounds.height),
-              0,
-              1,
-            );
-            videoTarget = progress * -18;
-          }
-
+        const captureLayout = () => {
           floaters.forEach((item) => {
             const bounds = item.element.getBoundingClientRect();
-            const centre = bounds.top + bounds.height / 2;
-            const distance =
-              (centre - window.innerHeight / 2) / Math.max(1, window.innerHeight);
-            item.target = clamp(distance * item.phase * 7, -7, 7);
+            item.top = bounds.top + window.scrollY;
+            item.height = bounds.height;
           });
-
-          if (!motionFrame) motionFrame = window.requestAnimationFrame(animate);
         };
 
-        const requestMeasure = () => {
-          if (!measureFrame) measureFrame = window.requestAnimationFrame(measure);
+        const update = () => {
+          frame = 0;
+          const viewportCentre = window.scrollY + window.innerHeight / 2;
+          floaters.forEach((item) => {
+            const distance =
+              (item.top + item.height / 2 - viewportCentre) /
+              Math.max(1, window.innerHeight);
+            const drift = clamp(distance * item.phase * 5, -5, 5);
+            item.element.style.setProperty(
+              "--evira-scroll-drift",
+              `${drift.toFixed(2)}px`,
+            );
+          });
         };
 
-        window.addEventListener("scroll", requestMeasure, { passive: true });
-        window.addEventListener("resize", requestMeasure, { passive: true });
-        requestMeasure();
+        const requestUpdate = () => {
+          if (!frame) frame = window.requestAnimationFrame(update);
+        };
+
+        const requestLayout = () => {
+          captureLayout();
+          requestUpdate();
+        };
+
+        window.addEventListener("scroll", requestUpdate, { passive: true });
+        window.addEventListener("resize", requestLayout, { passive: true });
+        requestLayout();
       })();
     </script>
   </body>
