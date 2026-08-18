@@ -7391,17 +7391,12 @@
         white-space: normal;
         text-align: center;
         align-items: center;
+        justify-content: center;
+        gap: 0.65rem;
       }
 
       .hero-brief-cta span:first-child {
-        align-self: flex-start;
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 1.25rem;
-        line-height: 1;
-      }
-
-      .hero-brief-cta span:last-child {
-        display: block;
+        align-self: center;
         max-width: 11ch;
         font-size: clamp(0.54rem, 0.68vw, 0.68rem);
         line-height: 1.05;
@@ -7409,10 +7404,139 @@
         text-align: center;
       }
 
+      .hero-brief-cta span:last-child {
+        display: block;
+        align-self: center;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.25rem;
+        line-height: 1;
+        text-align: center;
+      }
+
       @media (max-width: 540px) {
-        .hero-brief-cta span:last-child {
+        .hero-brief-cta {
+          gap: 0.45rem;
+        }
+
+        .hero-brief-cta span:first-child {
           max-width: 9ch;
           font-size: 0.48rem;
+        }
+
+        .hero-brief-cta span:last-child {
+          font-size: 1rem;
+        }
+      }
+    </style>
+    <style id="evira-mobile-hero-fit">
+      @media (max-width: 980px) {
+        .nav-shell {
+          height: 78px;
+          padding: 0 5vw;
+        }
+
+        .nav-links {
+          position: fixed;
+          inset: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: center;
+          padding: 12vw;
+          background: var(--ink);
+          color: var(--cream);
+          font-size: 2rem;
+          transform: translateY(-100%);
+          transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .nav-links.is-open {
+          transform: translateY(0);
+        }
+
+        .nav-cta {
+          border-color: var(--cream);
+        }
+
+        .menu-button {
+          position: relative;
+          z-index: 2;
+          display: flex;
+          width: 44px;
+          height: 44px;
+          border: 1px solid currentColor;
+          border-radius: 50%;
+          background: transparent;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 6px;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .hero {
+          min-height: 820px;
+          height: max(100svh, 820px);
+          padding-top: 112px;
+          padding-bottom: 96px;
+        }
+
+        .hero-kicker {
+          top: 104px;
+          left: 5vw;
+          right: 5vw;
+          font-size: 0.66rem;
+        }
+
+        .hero h1 {
+          max-width: 100%;
+          margin-top: 2.5rem;
+          font-size: clamp(3.5rem, 15vw, 6.2rem);
+          line-height: 0.82;
+          letter-spacing: -0.04em;
+          transform: none !important;
+        }
+
+        .hero h1 em {
+          letter-spacing: -0.035em;
+        }
+
+        .hero-bottom {
+          left: 5vw;
+          right: 5vw;
+          bottom: 72px;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 1.35rem;
+        }
+
+        .hero-bottom > p {
+          width: min(100%, 32rem);
+          max-width: 100%;
+          font-size: clamp(0.98rem, 4.2vw, 1.16rem);
+          line-height: 1.2;
+        }
+
+        .hero-actions-restored {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 1.05rem;
+        }
+
+        .hero-actions-restored .hero-brief-cta,
+        .hero-actions-restored .hero-secondary-link,
+        .hero-actions-restored .hero-reassurance {
+          grid-column: auto;
+          grid-row: auto;
+        }
+
+        .hero-actions-restored .hero-reassurance {
+          margin-top: 0.1rem;
+          max-width: 24ch;
+          font-size: 0.8rem;
         }
       }
     </style>
@@ -7512,7 +7636,7 @@
               aria-label="Send Evira your campaign brief"
               class="round-link hero-brief-cta"
               href="mailto:partnerships@eviramedia.com?subject=Creator%20Partnership%20Enquiry"
-              ><span>↓</span><span>Send us your brief</span></a
+              ><span>Send us your brief</span><span>↓</span></a
             >
             <a class="hero-secondary-link" href="#services"
               >How it works <span>↓</span></a
