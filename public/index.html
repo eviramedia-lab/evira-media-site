@@ -7540,6 +7540,286 @@
         }
       }
     </style>
+    <style id="evira-mobile-recompose">
+      .hero-heading__mobile,
+      .creator-route-heading__mobile,
+      .work-card-mobile-label {
+        display: none;
+      }
+
+      @media (max-width: 720px) {
+        html,
+        body {
+          overflow-x: clip;
+        }
+
+        .hero {
+          min-height: 740px;
+          height: clamp(740px, 92svh, 900px);
+          max-height: 900px;
+          padding: 112px 5vw 82px;
+          justify-content: flex-start;
+        }
+
+        .hero-motion-video {
+          object-position: 62% 38%;
+        }
+
+        .hero-kicker {
+          top: 2.25rem;
+          left: 5vw;
+          right: 5vw;
+          font-size: clamp(0.62rem, 2.6vw, 0.78rem);
+          line-height: 1.1;
+        }
+
+        .hero-heading {
+          max-width: 100%;
+          margin-top: clamp(3.2rem, 11vw, 5rem);
+          font-size: clamp(3.35rem, 14.8vw, 6rem);
+          line-height: 0.84;
+          letter-spacing: -0.045em;
+          transform: none !important;
+        }
+
+        .hero-heading__desktop {
+          display: none;
+        }
+
+        .hero-heading__mobile {
+          display: block;
+        }
+
+        .creator-route-heading__desktop {
+          display: none;
+        }
+
+        .creator-route-heading__mobile {
+          display: block;
+        }
+
+        .hero-heading em {
+          letter-spacing: -0.04em;
+        }
+
+        .hero-bottom {
+          left: 5vw;
+          right: 5vw;
+          bottom: 60px;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 1.1rem;
+        }
+
+        .hero-bottom > p {
+          width: 100%;
+          max-width: 34ch;
+          margin: 0;
+          font-size: clamp(1rem, 4.1vw, 1.14rem);
+          line-height: 1.22;
+        }
+
+        .hero-actions-restored {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.85rem;
+        }
+
+        .hero-actions-restored .hero-brief-cta {
+          width: min(100%, 18.5rem);
+          min-height: 3.5rem;
+          height: auto;
+          padding: 0.95rem 1.15rem;
+          border-radius: 999px;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          gap: 1rem;
+          white-space: nowrap;
+          text-align: left;
+        }
+
+        .hero-actions-restored .hero-brief-cta span:first-child {
+          max-width: none;
+          font-size: clamp(0.68rem, 2.7vw, 0.82rem);
+          line-height: 1;
+          letter-spacing: 0.08em;
+          text-align: left;
+        }
+
+        .hero-actions-restored .hero-brief-cta span:last-child {
+          flex: 0 0 auto;
+          font-size: 1.35rem;
+          line-height: 1;
+        }
+
+        .hero-actions-restored .hero-secondary-link {
+          font-size: 0.76rem;
+          letter-spacing: 0.09em;
+        }
+
+        .hero-actions-restored .hero-reassurance {
+          max-width: 28ch;
+          margin: 0;
+          font-size: 0.8rem;
+          line-height: 1.25;
+        }
+
+        .hero .ticker {
+          height: 38px;
+        }
+
+        .hero .ticker > div {
+          gap: 1.1rem;
+          font-size: 0.66rem;
+          animation-duration: 22s;
+        }
+
+        .work-card-mobile-label {
+          display: block;
+          margin-bottom: 0.35rem;
+          color: inherit;
+          font-size: 0.7rem;
+          line-height: 1.1;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+        }
+
+        .work-card-bottom > div {
+          max-width: 22ch;
+          line-height: 1.25;
+        }
+
+        .work-card-bottom > div > span:last-child {
+          display: block;
+          font-size: 0.76rem;
+          line-height: 1.25;
+        }
+
+        .work-card {
+          min-height: 470px;
+        }
+
+        .services-heading {
+          display: block;
+          padding: 3.75rem 0 4.25rem;
+        }
+
+        .services-heading h2 {
+          max-width: 9ch;
+          font-size: clamp(3.25rem, 14vw, 5rem);
+          line-height: 0.84;
+        }
+
+        .services-heading > p {
+          max-width: 29ch;
+          margin-top: 2rem;
+          font-size: 1rem;
+          line-height: 1.35;
+        }
+
+        .service-row,
+        .service-row:nth-child(even) {
+          min-height: 0;
+          grid-template-columns: 2.5rem minmax(0, 1fr) 1.5rem;
+          grid-template-areas:
+            "number title arrow"
+            ". copy copy";
+          gap: 0.55rem 0.8rem;
+          padding: 1.4rem 0 1.65rem;
+        }
+
+        .service-number { grid-area: number; }
+        .service-row h3 {
+          grid-area: title;
+          font-size: clamp(2rem, 9vw, 3.1rem);
+          line-height: 0.86;
+        }
+        .service-row > p {
+          grid-area: copy;
+          max-width: 32ch;
+          margin-top: 0.35rem;
+          font-size: 1rem;
+          line-height: 1.32;
+        }
+        .service-arrow {
+          grid-area: arrow;
+          justify-self: end;
+          font-size: 1.2rem;
+        }
+
+        .difference--final {
+          padding: 5.5rem 5vw 6.5rem !important;
+        }
+
+        .evira-trust {
+          display: block;
+          padding-top: 3.25rem;
+        }
+
+        .evira-trust h2 {
+          max-width: 8.5ch;
+          font-size: clamp(3.1rem, 13.5vw, 5rem);
+          line-height: 0.86;
+        }
+
+        .evira-trust__copy {
+          max-width: 32ch;
+          margin-top: 2.25rem;
+          font-size: 1rem;
+          line-height: 1.35;
+        }
+
+        .evira-trust__copy h3 {
+          margin: 1.15rem 0;
+          font-size: clamp(1.45rem, 6vw, 2rem);
+          line-height: 1;
+        }
+
+        .evira-trust__flow {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.35rem 0.6rem;
+          margin-top: 1.5rem;
+          font-size: 0.8rem;
+          letter-spacing: 0.08em;
+        }
+
+        .contact {
+          min-height: 0;
+          padding: 6rem 5vw 7rem;
+        }
+
+        .contact h2 {
+          max-width: 8ch;
+          font-size: clamp(3.4rem, 15vw, 5.5rem);
+          line-height: 0.86;
+        }
+      }
+
+      @media (max-width: 380px) {
+        .hero {
+          min-height: 700px;
+          height: 94svh;
+        }
+
+        .hero-heading {
+          font-size: clamp(3rem, 14.4vw, 4.8rem);
+        }
+
+        .hero-bottom {
+          bottom: 54px;
+        }
+
+        .hero-bottom > p {
+          font-size: 0.95rem;
+        }
+      }
+    </style>
   </head>
   <body>
     <div
@@ -7624,7 +7904,10 @@
         </video>
         <div aria-hidden="true" class="hero-motion-scrim"></div>
         <p class="eyebrow hero-kicker">CREATOR CAMPAIGNS, MANAGED</p>
-        <h1>YOUR CREATOR CAMPAIGN.<br /><em>HANDLED.</em></h1>
+        <h1 class="hero-heading">
+          <span class="hero-heading__desktop">YOUR CREATOR CAMPAIGN.<br /><em>HANDLED.</em></span>
+          <span class="hero-heading__mobile">YOUR CREATOR<br />CAMPAIGN.<br /><em>HANDLED.</em></span>
+        </h1>
         <div class="hero-bottom">
           <p>
             Tell us what you're promoting, who you want to reach and your
@@ -7731,6 +8014,7 @@
             <div class="work-card-bottom">
               <h3>Source</h3>
               <div>
+                <span class="work-card-mobile-label">RIGHT CREATORS</span>
                 <span>audience · relevance · brand fit</span>
               </div>
             </div>
@@ -7767,6 +8051,7 @@
             <div class="work-card-bottom">
               <h3>Negotiate</h3>
               <div>
+                <span class="work-card-mobile-label">BETTER TERMS</span>
                 <span>outreach · rates · agreements</span>
               </div>
             </div>
@@ -7803,6 +8088,7 @@
             <div class="work-card-bottom">
               <h3>Manage</h3>
               <div>
+                <span class="work-card-mobile-label">FROM YES TO LIVE</span>
                 <span>deliverables · communication · launch</span>
               </div>
             </div>
@@ -7814,7 +8100,10 @@
           <span>(03)</span><span>Creator sourcing</span>
         </div>
         <div class="creator-route__main" data-reveal="true">
-          <h2>WE FIND THE RIGHT CREATORS<br /><em>FOR YOUR CAMPAIGN.</em></h2>
+          <h2 class="creator-route-heading">
+            <span class="creator-route-heading__desktop">WE FIND THE RIGHT CREATORS<br /><em>FOR YOUR CAMPAIGN.</em></span>
+            <span class="creator-route-heading__mobile">WE FIND THE RIGHT<br />CREATORS FOR YOUR<br />CAMPAIGN.</span>
+          </h2>
           <div class="creator-route__copy">
             <p>
               Evira sources creators based on your audience, platform, campaign
