@@ -7877,6 +7877,36 @@
         }
       }
     </style>
+    <style id="evira-scroll-motion">
+      /* Scroll-only motion pass: preserve the existing composition while adding
+         a restrained sense of depth as each section enters the viewport. */
+      .hero-motion-video {
+        will-change: transform;
+      }
+
+      html.site-ready .hero-motion-video {
+        transform: translate3d(0, var(--evira-hero-video-y, 0px), 0) !important;
+      }
+
+      .work-card .phone-stage,
+      .services-heading > p,
+      .evira-trust__copy {
+        will-change: transform;
+        transform: translate3d(0, var(--evira-scroll-drift, 0px), 0);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html.site-ready .hero-motion-video {
+          transform: none !important;
+        }
+
+        .work-card .phone-stage,
+        .services-heading > p,
+        .evira-trust__copy {
+          transform: none !important;
+        }
+      }
+    </style>
   </head>
   <body>
     <div
@@ -8547,6 +8577,94 @@
         window.addEventListener("scroll", onScroll, { passive: true });
         window.addEventListener("resize", onScroll, { passive: true });
         update();
+      })();
+    </script>
+    <script id="evira-scroll-motion-script">
+      (() => {
+        const reducedMotion = window.matchMedia?.(
+          "(prefers-reduced-motion: reduce)",
+        ).matches;
+        if (reducedMotion) return;
+
+        const hero = document.querySelector(".hero");
+        const video = document.querySelector(".hero-motion-video");
+        const floaters = Array.from(
+          document.querySelectorAll(
+            ".work-card .phone-stage, .services-heading > p, .evira-trust__copy",
+          ),
+        ).map((element, index) => ({
+          element,
+          phase: index % 2 === 0 ? 1 : -1,
+          current: 0,
+          target: 0,
+        }));
+
+        let videoCurrent = 0;
+        let videoTarget = 0;
+        let measureFrame = 0;
+        let motionFrame = 0;
+
+        const clamp = (value, minimum, maximum) =>
+          Math.min(maximum, Math.max(minimum, value));
+
+        const animate = () => {
+          const videoDelta = videoTarget - videoCurrent;
+          videoCurrent += videoDelta * 0.14;
+          if (video) {
+            video.style.setProperty(
+              "--evira-hero-video-y",
+              `${videoCurrent.toFixed(2)}px`,
+            );
+          }
+
+          let moving = Math.abs(videoDelta) > 0.01;
+          floaters.forEach((item) => {
+            const delta = item.target - item.current;
+            item.current += delta * 0.14;
+            item.element.style.setProperty(
+              "--evira-scroll-drift",
+              `${item.current.toFixed(2)}px`,
+            );
+            if (Math.abs(delta) > 0.01) moving = true;
+          });
+
+          if (moving) {
+            motionFrame = window.requestAnimationFrame(animate);
+          } else {
+            motionFrame = 0;
+          }
+        };
+
+        const measure = () => {
+          measureFrame = 0;
+          if (hero && video) {
+            const bounds = hero.getBoundingClientRect();
+            const progress = clamp(
+              -bounds.top / Math.max(1, bounds.height),
+              0,
+              1,
+            );
+            videoTarget = progress * -18;
+          }
+
+          floaters.forEach((item) => {
+            const bounds = item.element.getBoundingClientRect();
+            const centre = bounds.top + bounds.height / 2;
+            const distance =
+              (centre - window.innerHeight / 2) / Math.max(1, window.innerHeight);
+            item.target = clamp(distance * item.phase * 7, -7, 7);
+          });
+
+          if (!motionFrame) motionFrame = window.requestAnimationFrame(animate);
+        };
+
+        const requestMeasure = () => {
+          if (!measureFrame) measureFrame = window.requestAnimationFrame(measure);
+        };
+
+        window.addEventListener("scroll", requestMeasure, { passive: true });
+        window.addEventListener("resize", requestMeasure, { passive: true });
+        requestMeasure();
       })();
     </script>
   </body>
