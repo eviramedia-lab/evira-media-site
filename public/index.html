@@ -6539,44 +6539,13 @@
         transform: scale(1) !important;
       }
 
-      /* Restore the branded lockup intro: three readable beats, then the Evira
-         mark and word together as the hand-off into the site. */
-      .evira-intro__sequence,
+      /* One Evira lockup, quiet mark movement, original loader timing. */
       .evira-intro__lockup {
         position: absolute;
         top: 50%;
         left: 50%;
         width: min(94vw, 1600px);
         transform: translate(-50%, -50%);
-      }
-
-      .evira-intro__sequence {
-        height: clamp(5.2rem, 16vw, 14rem);
-        overflow: hidden;
-      }
-
-      .evira-intro__word--media,
-      .evira-intro__word--community,
-      .evira-intro__word--ventures {
-        animation-duration: 1.1s;
-      }
-
-      .evira-intro__word--media {
-        animation-delay: 0.08s;
-      }
-
-      .evira-intro__word--community {
-        animation-delay: 0.78s;
-      }
-
-      .evira-intro__word--ventures {
-        max-width: calc(100vw - 2rem);
-        margin-inline: auto;
-        color: var(--signal);
-        font-size: clamp(3rem, 11.2vw, 10.5rem);
-        letter-spacing: -0.055em;
-        animation: evira-intro-word 1.1s cubic-bezier(0.22, 1, 0.36, 1) 1.48s
-          both;
       }
 
       .evira-intro__lockup {
@@ -6586,9 +6555,9 @@
         gap: clamp(0.8rem, 2vw, 1.8rem);
         max-width: calc(100vw - 2rem);
         opacity: 0;
-        transform: translate(-50%, -42%) scale(0.965);
+        transform: translate(-50%, -46%) scale(0.982);
         animation: evira-intro-lockup 0.58s cubic-bezier(0.22, 1, 0.36, 1)
-          2.48s forwards;
+          0.45s forwards;
       }
 
       .evira-intro__lockup strong {
@@ -6605,6 +6574,13 @@
         flex: 0 0 auto;
         color: var(--signal);
       }
+
+      .evira-intro__mark i {
+        transform-origin: left center;
+        animation: evira-intro-mark-settle 1.7s cubic-bezier(0.22, 1, 0.36, 1) 0.72s both;
+      }
+      .evira-intro__mark i:nth-child(2) { animation-delay: 0.84s; }
+      .evira-intro__mark i:nth-child(3) { animation-delay: 0.96s; }
 
       .evira-intro__footer {
         grid-template-columns: minmax(0, 1fr);
@@ -6626,6 +6602,12 @@
           opacity: 1;
           transform: translate(-50%, -50%) scale(1);
         }
+      }
+
+      @keyframes evira-intro-mark-settle {
+        0% { opacity: 0.45; transform: scaleX(0.82); }
+        58% { opacity: 1; transform: scaleX(1.025); }
+        100% { opacity: 1; transform: scaleX(1); }
       }
 
       /* The work cards now step down the page, while the creator route reads as a
@@ -8000,21 +7982,7 @@
         class="evira-intro__panel evira-intro__panel--bottom"
       ></div>
       <div aria-hidden="true" class="evira-intro__grid"></div>
-      <div aria-hidden="true" class="evira-intro__masthead">
-        <span>NZ DISTRIBUTION CAMPAIGNS</span>
-      </div>
       <div aria-hidden="true" class="evira-intro__stage">
-        <div class="evira-intro__sequence">
-          <span class="evira-intro__word evira-intro__word--media"
-            >NEW ZEALAND</span
-          >
-          <span class="evira-intro__word evira-intro__word--community"
-            >MEDIA DISTRIBUTION</span
-          >
-          <span class="evira-intro__word evira-intro__word--ventures"
-            >EVIRA</span
-          >
-        </div>
         <div class="evira-intro__lockup">
           <span aria-hidden="true" class="evira-mark evira-intro__mark"
             ><i></i><i></i><i></i
@@ -8073,7 +8041,7 @@
         </h1>
         <div class="hero-bottom">
           <p>
-            Tell us what you want to promote, who you want to reach and your budget. We use our network of creators, pages and media to get it seen.
+            Tell us what you want to promote, who you want to reach and your budget. We connect you with the creators, pages and media in our network to get it seen.
           </p>
           <div class="hero-actions-restored">
             <a
@@ -8086,11 +8054,11 @@
         </div>
         <div aria-label="Evira operating pillars" class="ticker ticker--dark">
           <div>
-            <span>01 TELL US</span><b>→</b><span>02 FIND</span><b>→</b
+              <span>01 BRIEF</span><b>→</b><span>02 MATCH</span><b>→</b
             ><span>03 ORGANISE</span><b>→</b><span>04 MANAGE</span><b>→</b
-            ><span>05 LIVE</span><b>→</b><span>01 TELL US</span><b>→</b
-            ><span>02 FIND</span><b>→</b><span>03 ORGANISE</span><b>→</b
-            ><span>04 MANAGE</span><b>→</b><span>05 LIVE</span><b>→</b>
+            ><span>05 REPORT</span><b>→</b><span>01 BRIEF</span><b>→</b
+            ><span>02 MATCH</span><b>→</b><span>03 ORGANISE</span><b>→</b
+            ><span>04 MANAGE</span><b>→</b><span>05 REPORT</span><b>→</b>
           </div>
         </div>
       </section>
@@ -8104,10 +8072,10 @@
           </h2>
           <div class="manifesto-final__copy">
             <p>
-              Instead of finding creators and pages one by one, tell Evira what you want promoted.
+              Instead of finding creators and pages one by one, tell Evira what you want people to know about.
             </p>
             <p>
-              We choose the right audiences, organise the placements and manage the campaign.
+              We match you with the right people and pages, organise the promotion and manage it.
             </p>
           </div>
         </div>
@@ -8118,18 +8086,18 @@
             <span class="section-index">(02)</span>
             <p>What Evira does</p>
           </div>
-          <h2>FIND.<br /><em>ORGANISE. REPORT.</em></h2>
+          <h2>CONNECT.<br /><em>ORGANISE. REPORT.</em></h2>
           <div class="section-intro">
             <p>
-              We find the right mix for what you want people to know about.
+              We connect your business with the right people, pages and media in our network.
             </p>
             <a
               class="section-action"
             href="mailto:partnerships@eviramedia.com?subject=Distribution%20Campaign%20Enquiry"
-              >TELL US YOUR PLAN <span>→︎</span></a
+              >SEND US YOUR BRIEF <span>→︎</span></a
             >
             <small class="section-note"
-              >We take it from there.</small
+              >We handle the rest.</small
             >
           </div>
         </div>
@@ -8253,15 +8221,15 @@
         </div>
         <div class="creator-route__main" data-reveal="true">
           <h2 class="creator-route-heading">
-            <span class="creator-route-heading__desktop">PEOPLE ALREADY HAVE<br /><em>THEIR ATTENTION.</em></span>
-            <span class="creator-route-heading__mobile">PEOPLE ALREADY<br />HAVE THEIR<br /><em>ATTENTION.</em></span>
+            <span class="creator-route-heading__desktop">THEY ALREADY HAVE<br /><em>PEOPLE'S ATTENTION.</em></span>
+            <span class="creator-route-heading__mobile">THEY ALREADY<br />HAVE PEOPLE'S<br /><em>ATTENTION.</em></span>
           </h2>
           <div class="creator-route__copy">
             <p>
               Creators. Social pages. Newsletters. Media. Communities.
             </p>
             <p class="creator-route__assurance">
-              We find the right mix for what you want people to know about.
+              Evira connects your business with the right ones for what you want people to know about.
             </p>
             <ul class="creator-network-tags" aria-label="Ways to get seen">
               <li>Creators</li>
