@@ -51,7 +51,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@500;600;700&family=Instrument+Serif:ital@0;1&family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=block"
+      href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@500;600;700&family=Instrument+Serif:ital@0;1&family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap"
     />
     <style>
       :root {
@@ -6525,12 +6525,7 @@
         transform: scale(1) !important;
       }
 
-      /* Keep the hand-off clean: the lockup appears only once its real typeface
-         is ready, and the hero is not uncovered until video has a first frame. */
-      html.is-loading:not(.evira-fonts-ready) .evira-intro__lockup {
-        opacity: 0;
-      }
-
+      /* Keep the hero covered until video has a first renderable frame. */
       html.site-ready:not(.hero-video-ready):not(.hero-video-fallback)
         .hero-motion-video {
         opacity: 0 !important;
@@ -8597,100 +8592,99 @@
         ).matches;
         const minimumDuration = reducedMotion ? 0 : 3500;
 
-        // The loader is a black canvas, so waiting for the actual font avoids
-        // showing a fallback wordmark that changes shape mid-intro.
-        const fontsReady = document.fonts?.ready || Promise.resolve();
-        fontsReady.catch(() => {}).then(() => {
-          root.classList.add("evira-fonts-ready");
+        // Do not hold the existing Evira lockup back: it remains visible from
+        // the first frame while the video readies underneath it.
+        document.fonts?.ready
+          ?.catch(() => {})
+          .then(() => root.classList.add("evira-fonts-ready"));
 
-          let videoHasFrame = !heroVideo;
-          let playRetry;
-          const startedAt = performance.now();
+        let videoHasFrame = !heroVideo;
+        let playRetry;
+        const startedAt = performance.now();
 
-          const finish = () => {
-            if (!loader || loader.classList.contains("is-leaving")) return;
-            root.classList.add("site-ready");
-            loader.classList.add("is-leaving");
-            window.setTimeout(() => {
-              loader.remove();
-              root.classList.remove("is-loading");
-            }, 340);
+        const finish = () => {
+          if (!loader || loader.classList.contains("is-leaving")) return;
+          root.classList.add("site-ready");
+          loader.classList.add("is-leaving");
+          window.setTimeout(() => {
+            loader.remove();
+            root.classList.remove("is-loading");
+          }, 340);
+        };
+
+        const markVideoFrame = () => {
+          if (!heroVideo || heroVideo.readyState < HTMLMediaElement.HAVE_CURRENT_DATA) {
+            return false;
+          }
+          videoHasFrame = true;
+          root.classList.add("hero-video-ready");
+          return true;
+        };
+
+        const finishWhenReady = () => {
+          const introComplete = performance.now() - startedAt >= minimumDuration;
+          if (introComplete && (videoHasFrame || document.visibilityState === "hidden")) {
+            finish();
+          }
+        };
+
+        if (heroVideo) {
+          heroVideo.muted = true;
+          heroVideo.defaultMuted = true;
+          heroVideo.loop = true;
+          heroVideo.playsInline = true;
+          heroVideo.preload = "auto";
+          heroVideo.setAttribute("autoplay", "");
+          heroVideo.setAttribute("muted", "");
+          heroVideo.setAttribute("loop", "");
+          heroVideo.setAttribute("playsinline", "");
+          heroVideo.setAttribute("webkit-playsinline", "");
+
+          const play = () => {
+            if (document.visibilityState === "hidden") return;
+            const attempt = heroVideo.play();
+            attempt
+              ?.then(() => {
+                markVideoFrame();
+                finishWhenReady();
+              })
+              .catch(() => {
+                window.clearTimeout(playRetry);
+                playRetry = window.setTimeout(play, 500);
+              });
           };
-
-          const markVideoFrame = () => {
-            if (!heroVideo || heroVideo.readyState < HTMLMediaElement.HAVE_CURRENT_DATA) {
-              return false;
-            }
-            videoHasFrame = true;
-            root.classList.add("hero-video-ready");
-            return true;
-          };
-
-          const finishWhenReady = () => {
-            const introComplete = performance.now() - startedAt >= minimumDuration;
-            if (introComplete && (videoHasFrame || document.visibilityState === "hidden")) {
-              finish();
-            }
-          };
-
-          if (heroVideo) {
-            heroVideo.muted = true;
-            heroVideo.defaultMuted = true;
-            heroVideo.loop = true;
-            heroVideo.playsInline = true;
-            heroVideo.preload = "auto";
-            heroVideo.setAttribute("autoplay", "");
-            heroVideo.setAttribute("muted", "");
-            heroVideo.setAttribute("loop", "");
-            heroVideo.setAttribute("playsinline", "");
-            heroVideo.setAttribute("webkit-playsinline", "");
-
-            const play = () => {
-              if (document.visibilityState === "hidden") return;
-              const attempt = heroVideo.play();
-              attempt
-                ?.then(() => {
-                  markVideoFrame();
-                  finishWhenReady();
-                })
-                .catch(() => {
-                  window.clearTimeout(playRetry);
-                  playRetry = window.setTimeout(play, 500);
-                });
-            };
-            const onFrame = () => {
-              markVideoFrame();
-              play();
-              finishWhenReady();
-            };
-
-            ["loadeddata", "canplay", "canplaythrough", "playing"].forEach(
-              (eventName) => heroVideo.addEventListener(eventName, onFrame),
-            );
-            document.addEventListener("visibilitychange", () => {
-              if (document.visibilityState === "visible") play();
-              finishWhenReady();
-            });
-            window.addEventListener("pageshow", play);
-            heroVideo.addEventListener("pause", () => {
-              if (!heroVideo.ended && document.visibilityState === "visible") {
-                window.setTimeout(play, 120);
-              }
-            });
-            heroVideo.addEventListener("ended", play);
+          const onFrame = () => {
             markVideoFrame();
             play();
-          }
+            finishWhenReady();
+          };
 
-          window.setTimeout(finishWhenReady, minimumDuration);
-          // Never leave somebody on the loader if their connection drops. The
-          // inline poster remains available as the visual fallback in that case.
-          window.setTimeout(() => {
-            if (!videoHasFrame) root.classList.add("hero-video-fallback");
-            finish();
-          }, reducedMotion ? 0 : 5500);
-          finishWhenReady();
-        });
+          ["loadeddata", "canplay", "canplaythrough", "playing"].forEach(
+            (eventName) => heroVideo.addEventListener(eventName, onFrame),
+          );
+          document.addEventListener("visibilitychange", () => {
+            if (document.visibilityState === "visible") play();
+            finishWhenReady();
+          });
+          window.addEventListener("pageshow", play);
+          heroVideo.addEventListener("pause", () => {
+            if (!heroVideo.ended && document.visibilityState === "visible") {
+              window.setTimeout(play, 120);
+            }
+          });
+          heroVideo.addEventListener("ended", play);
+          markVideoFrame();
+          play();
+        }
+
+        window.setTimeout(finishWhenReady, minimumDuration);
+        // Never leave somebody on the loader if their connection drops. The
+        // inline poster remains available as the visual fallback in that case.
+        window.setTimeout(() => {
+          if (!videoHasFrame) root.classList.add("hero-video-fallback");
+          finish();
+        }, reducedMotion ? 0 : 5500);
+        finishWhenReady();
       })();
     </script>
     <script id="evira-image-load-script">
