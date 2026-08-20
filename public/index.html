@@ -7517,9 +7517,9 @@
         }
 
         .hero {
-          min-height: 660px;
-          height: clamp(660px, 78svh, 760px);
-          max-height: 760px;
+          min-height: 600px;
+          height: clamp(600px, 71svh, 700px);
+          max-height: 700px;
           padding: 112px 5vw 82px;
           justify-content: flex-start;
         }
@@ -7946,6 +7946,16 @@
           display: inline-block;
           font-size: 0.88em;
           white-space: nowrap;
+        }
+
+        .work-card:nth-child(1) .work-card-bottom h3,
+        .work-card:nth-child(1) .work-card-bottom > div {
+          transform: translateY(-28px);
+        }
+
+        .work-card:nth-child(3) .work-card-bottom h3,
+        .work-card:nth-child(3) .work-card-bottom > div {
+          transform: translateY(-26px);
         }
       }
     </style>
