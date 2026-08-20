@@ -7955,33 +7955,46 @@
         }
       }
     </style>
-    <style id="evira-loader-copy-fit">
-      /* The loader's new wording uses the existing sequence and animation;
-         only its type scale is tightened where the longer names require it. */
-      .evira-intro__word--media {
-        font-size: clamp(3.2rem, 11vw, 10rem);
+    <style id="evira-logo-only-loader">
+      /* Keep the established loader duration and progress line, with the
+         Evira lockup as the sole visual beat. */
+      .evira-intro__masthead,
+      .evira-intro__sequence {
+        display: none;
       }
 
-      .evira-intro__word--community {
-        font-size: clamp(2.1rem, 7.4vw, 7rem);
-        letter-spacing: -0.055em;
+      .evira-intro__lockup {
+        animation: evira-loader-logo-settle 2.9s
+          cubic-bezier(0.22, 1, 0.36, 1) 0.28s both;
       }
 
-      .evira-intro__word--ventures {
-        font-size: clamp(4rem, 13.5vw, 12.5rem);
+      .evira-intro__lockup strong {
+        font-size: clamp(5rem, 16vw, 14.5rem);
+      }
+
+      .evira-intro__mark {
+        width: clamp(3.5rem, 8vw, 7.25rem);
+        height: clamp(3.5rem, 8vw, 7.25rem);
+      }
+
+      @keyframes evira-loader-logo-settle {
+        0% {
+          opacity: 0;
+          transform: translate(-50%, -50%) scale(0.92);
+        }
+        24% {
+          opacity: 1;
+          transform: translate(-50%, -50%) scale(1);
+        }
+        100% {
+          opacity: 1;
+          transform: translate(-50%, -50%) scale(1);
+        }
       }
 
       @media (max-width: 720px) {
-        .evira-intro__word--media {
-          font-size: clamp(2.7rem, 11vw, 4.5rem);
-        }
-
-        .evira-intro__word--community {
-          font-size: clamp(1.85rem, 6.6vw, 3rem);
-        }
-
-        .evira-intro__word--ventures {
-          font-size: clamp(3.05rem, 16vw, 6.45rem);
+        .evira-intro__lockup strong {
+          font-size: clamp(4rem, 18vw, 7.8rem);
         }
       }
     </style>
