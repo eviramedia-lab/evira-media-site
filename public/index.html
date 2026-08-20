@@ -7916,6 +7916,32 @@
         .hero-actions-restored .hero-brief-cta span:first-child {
           text-align: center;
         }
+
+        .work-card-bottom {
+          display: grid;
+          grid-template-columns: minmax(0, 1fr);
+          align-content: end;
+          justify-content: stretch;
+          gap: 0.7rem;
+          min-height: 164px;
+        }
+
+        .work-card-bottom > div {
+          display: block;
+          width: 100%;
+          max-width: 28ch;
+        }
+
+        .work-card-mobile-label {
+          display: none;
+        }
+      }
+
+      @media (min-width: 381px) and (max-width: 720px) {
+        .hero-bottom {
+          bottom: 78px;
+          gap: 1.2rem;
+        }
       }
     </style>
     <style id="evira-loader-copy-fit">
@@ -8525,6 +8551,10 @@
             once: true,
             passive: true,
           });
+          heroVideo.addEventListener("pause", () => {
+            window.setTimeout(play, 120);
+          });
+          heroVideo.addEventListener("ended", play);
           play();
         }
 
