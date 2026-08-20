@@ -8008,6 +8008,21 @@
         }
       }
     </style>
+    <style id="evira-mobile-hero-breathing-room">
+      @media (max-width: 720px) {
+        /* Give the existing mobile composition enough vertical room for each
+           element to read on its own, without changing the desktop hero. */
+        .hero {
+          min-height: 720px;
+          height: clamp(720px, 86svh, 800px);
+          max-height: 800px;
+        }
+
+        .hero-bottom {
+          bottom: 72px;
+        }
+      }
+    </style>
     <style id="evira-loader-copy-fit">
       .evira-intro__word--media {
         font-size: clamp(3.2rem, 11vw, 10rem);
