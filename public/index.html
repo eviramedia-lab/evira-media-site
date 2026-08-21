@@ -8010,20 +8010,28 @@
     </style>
     <style id="evira-mobile-hero-breathing-room">
       @media (max-width: 720px) {
-        /* Give the existing mobile composition enough vertical room for each
-           element to read on its own, without changing the desktop hero. */
+        /* A single mobile rhythm: the text and action remain in normal flow,
+           while the existing ticker stays anchored at the end of the hero. */
         .hero {
-          min-height: 720px;
-          height: clamp(720px, 86svh, 800px);
-          max-height: 800px;
+          min-height: 0;
+          height: auto;
+          max-height: none;
+          padding: 112px 5vw 88px;
         }
 
         .hero-heading {
-          margin-top: clamp(4rem, 14vw, 5.5rem);
+          margin-top: clamp(3.75rem, 15vw, 4.5rem);
+          line-height: 0.84;
         }
 
         .hero-bottom {
-          bottom: 72px;
+          position: relative;
+          right: auto;
+          bottom: auto;
+          left: auto;
+          width: 100%;
+          margin-top: clamp(4rem, 14vw, 4.75rem);
+          gap: 1.1rem;
         }
       }
     </style>
@@ -8125,9 +8133,12 @@
         </video>
         <div aria-hidden="true" class="hero-motion-scrim"></div>
         <p class="eyebrow hero-kicker">CAMPAIGN EXECUTION</p>
-        <h1 class="hero-heading">
-          <span class="hero-heading__desktop">PUT YOUR BUSINESS<br /><em>IN FRONT OF THE RIGHT AUDIENCE.</em></span>
-          <span class="hero-heading__mobile">PUT YOUR<br />BUSINESS<br /><em>IN FRONT OF THE<br />RIGHT AUDIENCE.</em></span>
+        <h1
+          aria-label="PUT YOUR BUSINESS IN FRONT OF THE RIGHT AUDIENCE."
+          class="hero-heading"
+        >
+          <span aria-hidden="true" class="hero-heading__desktop">PUT YOUR BUSINESS<br /><em>IN FRONT OF THE RIGHT AUDIENCE.</em></span>
+          <span aria-hidden="true" class="hero-heading__mobile">PUT YOUR<br />BUSINESS<br /><em>IN FRONT OF THE<br />RIGHT AUDIENCE.</em></span>
         </h1>
         <div class="hero-bottom">
           <p>
