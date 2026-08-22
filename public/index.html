@@ -2263,20 +2263,12 @@
         animation: cremora-loader-content-out 0.28s ease forwards;
       }
 
-      .hero-motion-poster,
       .hero-motion-video,
       .hero-motion-scrim {
         position: absolute;
         inset: 0;
         width: 100%;
         height: 100%;
-      }
-      .hero-motion-poster {
-        z-index: 0;
-        object-fit: cover;
-        object-position: center 44%;
-        filter: grayscale(0.58) saturate(0.62) contrast(1.12) brightness(0.58);
-        transform: scale(1);
       }
       .hero-motion-video {
         z-index: 0;
@@ -6531,7 +6523,6 @@
     </style>
     <style id="evira-creative-director-pass">
       /* Keep the motion plate inside the hero and guarantee the reveal after the intro. */
-      .hero-motion-poster,
       .hero-motion-video {
         transform: scale(1);
       }
@@ -6542,10 +6533,6 @@
       }
 
       /* Keep the hero covered until video has a first renderable frame. */
-      .hero-motion-poster {
-        filter: grayscale(0.2) saturate(0.92) contrast(1.18) brightness(0.62);
-      }
-
       html.site-ready:not(.hero-video-ready)
         .hero-motion-video {
         opacity: 0 !important;
@@ -7555,7 +7542,6 @@
           justify-content: flex-start;
         }
 
-        .hero-motion-poster,
         .hero-motion-video {
           object-position: 62% 38%;
         }
@@ -8136,11 +8122,6 @@
         </button>
       </header>
       <section class="hero" id="top">
-        <img
-          aria-hidden="true"
-          class="hero-motion-poster"
-          src="/evira-hero-poster.jpg"
-        />
         <video
           aria-hidden="true"
           autoplay=""
@@ -8677,6 +8658,17 @@
           return true;
         };
 
+        const markRenderedFrame = () => {
+          if (!heroVideo) return;
+          if (typeof heroVideo.requestVideoFrameCallback === "function") {
+            heroVideo.requestVideoFrameCallback(() => {
+              if (markVideoFrame()) finishWhenReady();
+            });
+            return;
+          }
+          if (markVideoFrame()) finishWhenReady();
+        };
+
         const finishWhenReady = () => {
           const introComplete = performance.now() - startedAt >= minimumDuration;
           if (introComplete && (videoHasFrame || document.visibilityState === "hidden")) {
@@ -8695,6 +8687,7 @@
           heroVideo.setAttribute("loop", "");
           heroVideo.setAttribute("playsinline", "");
           heroVideo.setAttribute("webkit-playsinline", "");
+          heroVideo.removeAttribute("poster");
           heroVideo.load();
 
           const play = () => {
@@ -8702,7 +8695,7 @@
             const attempt = heroVideo.play();
             attempt
               ?.then(() => {
-                markVideoFrame();
+                markRenderedFrame();
                 finishWhenReady();
               })
               .catch(() => {
@@ -8711,7 +8704,7 @@
               });
           };
           const onFrame = () => {
-            markVideoFrame();
+            markRenderedFrame();
             play();
             finishWhenReady();
           };
@@ -8730,17 +8723,18 @@
             }
           });
           heroVideo.addEventListener("ended", play);
-          markVideoFrame();
+          heroVideo.addEventListener(
+            "error",
+            () => {
+              root.classList.add("hero-video-failed");
+              finish();
+            },
+            { once: true },
+          );
           play();
         }
 
         window.setTimeout(finishWhenReady, minimumDuration);
-        // Never leave somebody on the loader if their connection drops. The
-        // inline poster remains available as the visual fallback in that case.
-        window.setTimeout(() => {
-          if (!videoHasFrame) root.classList.add("hero-video-fallback");
-          finish();
-        }, reducedMotion ? 0 : 5500);
         finishWhenReady();
       })();
     </script>
