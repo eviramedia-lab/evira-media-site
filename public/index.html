@@ -76,7 +76,7 @@
     <link
       rel="preload"
       as="video"
-      href="/evira-hero-optimized.mp4"
+      href="/evira-hero-optics.mp4"
       type="video/mp4"
       fetchpriority="high"
     />
@@ -1561,13 +1561,13 @@
         object-position: 50% 50%;
       }
       .work-card:nth-child(1) .creator-shape--asset img {
-        content: url("assets/evira-photography.png");
+        content: url("assets/evira-editorial-photography.png");
       }
       .work-card:nth-child(2) .creator-shape--asset img {
-        content: url("assets/evira-videography.png");
+        content: url("assets/evira-editorial-videography.png");
       }
       .work-card:nth-child(3) .creator-shape--asset img {
-        content: url("assets/evira-photo-video.png");
+        content: url("assets/evira-editorial-photo-video.png");
       }
       .work-card:hover .creator-shape--asset img {
         transform: scale(1.035);
@@ -8167,10 +8167,14 @@
           tabindex="-1"
         >
           <source
-            src="/evira-hero-optimized.mp4"
+            src="/evira-hero-optics.mp4"
             type="video/mp4"
           />
         </video>
+        <script>
+          document.currentScript.previousElementSibling.poster =
+            "/evira-hero-optics-poster.jpg";
+        </script>
         <div aria-hidden="true" class="hero-motion-scrim"></div>
         <p class="eyebrow hero-kicker">PHOTOGRAPHY + VIDEOGRAPHY</p>
         <h1
